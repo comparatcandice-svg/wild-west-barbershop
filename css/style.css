@@ -1,0 +1,197 @@
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { width:100%; min-height:100%; }
+  body {
+    position:relative;
+    font-family:'Cinzel',Georgia,serif;
+    color:var(--ink);
+    background-color:#1c140c;
+    overflow-x:hidden;
+  }
+
+  :root {
+    --ink:#241d14;
+    --ink-soft:rgba(36,29,20,0.78);
+    --ink-faint:rgba(36,29,20,0.55);
+    --line:rgba(36,29,20,0.55);
+    --line-faint:rgba(255,235,205,0.28);
+    --gold:#c9a876;
+    --gold-bright:#e6c98f;
+    --glow:rgba(201,168,118,0.65);
+    --parchment:rgba(244,231,205,0.86);
+    --parchment-soft:rgba(244,231,205,0.6);
+  }
+
+  [data-i18n] { display:none; }
+  body.lang-id [data-i18n="id"], body.lang-en [data-i18n="en"],
+  body.lang-ru [data-i18n="ru"], body.lang-zh [data-i18n="zh"] { display:inline; }
+  body.lang-zh { font-family:'Noto Sans SC','Cinzel',Georgia,serif; }
+
+  /* ---------- shared voluminous "btn3d" system: layered lift shadow +
+     glass top-highlight + diagonal shine sweep, same construction proven
+     on the Kedai Bantan project, retoned to this brand's dark leather/brass
+     palette instead of kraft/gold. ---------- */
+  .btn3d {
+    position:relative; overflow:hidden;
+    --rest-shadow:0 6px 14px rgba(10,6,2,0.4), 0 2px 4px rgba(10,6,2,0.3), inset 0 1px 0 rgba(255,240,210,0.18);
+    box-shadow:var(--rest-shadow);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn3d::before {
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(180deg, rgba(255,240,210,0.22) 0%, rgba(255,240,210,0.05) 30%, transparent 55%, rgba(0,0,0,0.22) 100%);
+  }
+  .btn3d::after {
+    content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+    background:linear-gradient(120deg, transparent 36%, rgba(255,240,210,0.4) 50%, transparent 64%);
+    transform:translateX(-140%); animation:shineSweep 4.6s ease-in-out infinite;
+  }
+  .btn3d:nth-child(2)::after { animation-delay:.4s; }
+  .btn3d:nth-child(3)::after { animation-delay:.8s; }
+  .btn3d:nth-child(4)::after { animation-delay:1.2s; }
+  .btn3d:active { transform:translateY(2px); box-shadow:0 2px 6px rgba(10,6,2,0.35), inset 0 1px 0 rgba(255,240,210,0.12); }
+  @keyframes shineSweep { 0%{transform:translateX(-140%);} 30%{transform:translateX(140%);} 100%{transform:translateX(140%);} }
+  @keyframes glowPulse {
+    0%,100%{ box-shadow:var(--rest-shadow), 0 0 0 0 rgba(0,0,0,0); }
+    50%{ box-shadow:var(--rest-shadow), 0 0 20px 3px var(--glow); }
+  }
+
+  /* ---------- splash: his real vibrant desert photo, full-bleed, with the
+     real logo crop given the same glossy-dome treatment as the buttons ---------- */
+  .splash { position:fixed; inset:0; z-index:100; cursor:pointer; overflow:hidden;
+    transition:opacity .45s ease, visibility .45s ease; }
+  .splash.is-hidden { opacity:0; visibility:hidden; pointer-events:none; }
+  .splash-bg { position:absolute; inset:0; background-image:url(../images/desert-bg.jpg);
+    background-size:cover; background-position:center; }
+  .splash-scrim { position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(60,45,25,0.05) 0%, rgba(60,45,25,0.04) 40%, rgba(40,28,14,0.28) 80%, rgba(30,20,10,0.42) 100%); }
+  /* ---------- three-zone vertical layout (same fix as Kedai Bantan): the
+     "tap to view menu" pill sits centered in the GAP between the logo and
+     the bottom credit line, instead of floating right above the credit
+     where it can crowd it on shorter screens. The two spacer zones share
+     the leftover height equally. ---------- */
+  .splash-content { position:relative; z-index:1; height:100%; display:flex; flex-direction:column;
+    align-items:center; padding:32px 24px 26px; text-align:center; }
+  .splash-spacer { flex:1 1 0; min-height:0; }
+  .splash-main { flex:none; display:flex; flex-direction:column; align-items:center; }
+  .splash-hint-zone { flex:1 1 0; min-height:0; display:flex; align-items:center; justify-content:center; }
+  .splash-credit { flex:none; text-align:center; font-size:12px; letter-spacing:2px;
+    color:rgba(244,231,205,0.65); text-transform:lowercase; pointer-events:none; }
+
+  .splash-logo-wrap { perspective:900px; margin-bottom:38px; }
+  .logo-spin { position:relative; display:block; border-radius:50%;
+    animation:logoSpin 4s ease-in-out infinite, logoGlow 4s ease-in-out infinite; }
+  .logo-frame { position:relative; width:100%; height:100%; border-radius:50%;
+    overflow:hidden; backface-visibility:hidden; }
+  .logo-frame img { width:100%; height:100%; display:block; object-fit:cover; border-radius:50%; }
+  .logo-frame::before { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; border-radius:50%;
+    background:linear-gradient(180deg, rgba(255,240,210,0.5) 0%, rgba(255,240,210,0.12) 26%, transparent 52%, rgba(0,0,0,0.2) 100%); }
+  .logo-frame::after { content:""; position:absolute; inset:0; z-index:3; pointer-events:none; border-radius:50%;
+    background:linear-gradient(120deg, transparent 32%, rgba(255,240,210,0.62) 48%, transparent 66%);
+    transform:translateX(-140%) rotate(0.001deg); animation:shineSweep 4.2s ease-in-out infinite; }
+  @keyframes logoSpin {
+    0%{ transform:scale(1) rotateY(0deg); }
+    8%{ transform:scale(1.09) rotateY(0deg); }
+    24%{ transform:scale(1) rotateY(360deg); }
+    100%{ transform:scale(1) rotateY(360deg); }
+  }
+  @keyframes logoGlow {
+    0%,100%{ box-shadow:var(--rest-shadow); }
+    8%{ box-shadow:var(--rest-shadow), 0 0 42px 10px var(--glow); }
+    24%{ box-shadow:var(--rest-shadow), 0 0 16px 2px var(--glow); }
+  }
+  .logo-spin--splash { --rest-shadow:0 22px 46px rgba(10,6,2,0.55), 0 6px 16px rgba(10,6,2,0.4), 0 0 0 8px rgba(244,231,205,0.85);
+    width:320px; height:320px; border:5px solid #1c1712; box-shadow:var(--rest-shadow); }
+  .logo-spin--header { --rest-shadow:0 10px 24px rgba(10,6,2,0.4), 0 2px 8px rgba(10,6,2,0.3), 0 0 0 4px rgba(244,231,205,0.85);
+    width:150px; height:150px; border:2.5px solid #1c1712; box-shadow:var(--rest-shadow); }
+
+  .splash-hint { --rest-shadow:0 16px 30px rgba(10,6,2,0.4), 0 4px 10px rgba(10,6,2,0.3),
+      inset 0 1px 0 rgba(255,240,210,0.3);
+    font-size:14px; letter-spacing:2.5px; text-transform:uppercase; font-weight:600;
+    color:#f4e7cd; padding:16px 30px; border-radius:28px; border:1.4px solid rgba(244,231,205,0.4);
+    background:linear-gradient(180deg, rgba(60,42,24,0.55) 0%, rgba(30,20,10,0.6) 100%);
+    backdrop-filter:blur(8px) saturate(140%); -webkit-backdrop-filter:blur(8px) saturate(140%);
+    box-shadow:var(--rest-shadow); animation:glowPulse 3.4s ease-in-out infinite; }
+
+  /* ---------- page frame: his real faded/muted desert photo as a
+     persistent full-bleed background, with a dark scrim so item text
+     stays legible over a real photo (not a flat kraft tone) ---------- */
+  .page { position:relative; min-height:100%; }
+  .page-bg { position:fixed; inset:0; z-index:-2; background-image:url(../images/desert-bg.jpg);
+    background-size:cover; background-position:center; }
+  .page-scrim { position:fixed; inset:0; z-index:-1;
+    background:linear-gradient(180deg, rgba(60,45,25,0.08) 0%, rgba(50,38,20,0.16) 30%, rgba(40,28,14,0.28) 65%, rgba(30,20,10,0.4) 100%); }
+
+  .page-header { display:flex; justify-content:center; padding:26px 18px 4px; perspective:900px; }
+
+  /* ---------- language switch ---------- */
+  .lang-switch { display:flex; justify-content:center; gap:8px; padding:16px 18px 4px; }
+  .lang-btn { --rest-shadow:0 6px 14px rgba(10,6,2,0.3), 0 2px 4px rgba(10,6,2,0.24), inset 0 1px 0 rgba(255,240,210,0.25);
+    font-family:'Cinzel','Noto Sans SC',Georgia,serif; font-size:12px; font-weight:600; letter-spacing:0.5px;
+    padding:8px 15px; border-radius:16px; border:1.2px solid rgba(244,231,205,0.5); cursor:pointer;
+    color:#f4e7cd; background:linear-gradient(180deg, rgba(60,42,24,0.5) 0%, rgba(30,20,10,0.55) 100%);
+    backdrop-filter:blur(8px) saturate(140%); box-shadow:var(--rest-shadow); }
+  .lang-btn.active { background:linear-gradient(180deg, #6b4a26 0%, #3a2712 60%, #1c1409 100%);
+    color:var(--gold-bright); border-color:var(--gold); animation:glowPulse 3.4s ease-in-out infinite; }
+
+  /* ---------- quick links: Location / Instagram / WhatsApp ---------- */
+  .quick-links { display:flex; gap:9px; padding:14px 18px 6px; }
+  .quick-links a { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px;
+    padding:13px 6px; border-radius:16px; border:1.3px solid rgba(244,231,205,0.35);
+    background:linear-gradient(180deg, rgba(60,42,24,0.42) 0%, rgba(30,20,10,0.48) 100%);
+    backdrop-filter:blur(9px) saturate(150%); -webkit-backdrop-filter:blur(9px) saturate(150%);
+    color:#f4e7cd; text-decoration:none; font-size:12.5px; font-weight:600; letter-spacing:0.3px; }
+  .quick-links svg { width:20px; height:20px; stroke:var(--gold-bright); fill:none; stroke-width:1.6; }
+
+  /* ---------- category tabs: floating pills directly on the page bg,
+     no separate band behind them ---------- */
+  .tabs-wrap { position:sticky; top:0; z-index:10; padding:16px 0 12px; }
+  .tabs-scroll { display:flex; gap:10px; overflow-x:auto; padding:0 18px 4px; scrollbar-width:none; }
+  .tabs-scroll::-webkit-scrollbar { display:none; }
+  .tab { flex:none; font-family:'Cinzel',Georgia,serif; font-size:13px; font-weight:600; letter-spacing:0.5px;
+    padding:11px 18px; border-radius:22px; border:1.3px solid rgba(244,231,205,0.35); cursor:pointer;
+    color:#f4e7cd; white-space:nowrap;
+    background:linear-gradient(180deg, rgba(60,42,24,0.42) 0%, rgba(30,20,10,0.48) 100%);
+    backdrop-filter:blur(9px) saturate(150%); -webkit-backdrop-filter:blur(9px) saturate(150%); }
+  .tab.active { background:linear-gradient(180deg, #6b4a26 0%, #3a2712 55%, #1c1409 90%);
+    color:var(--gold-bright); border-color:var(--gold); animation:glowPulse 3.4s ease-in-out infinite; }
+
+  /* ---------- item panels: now ALL rendered in one continuous vertical
+     column (no show/hide) — the sticky tabs row above is a scroll-spy
+     indicator instead of a visibility switch. Parchment "ticket" cards
+     keep item text legible over the real photo behind them. ---------- */
+  .panel { padding:6px 18px 30px; }
+  .panel:last-child { padding-bottom:26px; }
+  /* section banner: bled to full width, brass-tinted band + top/bottom
+     rule + a small voluminous glossy dome mark (same construction as the
+     logo/active-tab: dark leather-brass gradient + upper-left glass glare)
+     so a new category reads instantly while scrolling fast. */
+  .panel-title { display:flex; align-items:center; gap:11px;
+    font-family:'Cinzel',Georgia,serif; font-weight:700; font-size:22px;
+    letter-spacing:1px; text-transform:uppercase; color:var(--gold-bright);
+    margin:0 -18px 18px; padding:15px 18px 13px;
+    background:linear-gradient(180deg, rgba(201,168,118,0.24) 0%, rgba(201,168,118,0.05) 100%);
+    border-top:1.5px solid rgba(244,231,205,0.4); border-bottom:1.5px solid rgba(244,231,205,0.4);
+    text-shadow:0 2px 6px rgba(10,6,2,0.5); }
+  .panel-mark { position:relative; overflow:hidden; flex:none; width:21px; height:21px; border-radius:50%;
+    background:linear-gradient(180deg, #6b4a26 0%, #3a2712 55%, #1c1409 100%);
+    box-shadow:
+      0 7px 14px rgba(10,6,2,0.48), 0 2px 5px rgba(10,6,2,0.32), 0 0 11px rgba(201,168,118,0.45),
+      inset 0 1.5px 0 rgba(255,240,210,0.32), inset 0 -2px 5px rgba(0,0,0,0.38); }
+  .panel-mark::before { content:""; position:absolute; inset:0; border-radius:50%; pointer-events:none;
+    background:radial-gradient(85% 140% at 25% 16%, rgba(255,240,210,0.92) 0%, rgba(255,240,210,0.42) 22%, rgba(255,240,210,0.08) 42%, transparent 62%); }
+  .panel-title-text { flex:1 1 auto; }
+  .item { padding:16px 16px; margin-bottom:10px; border-radius:14px;
+    background:linear-gradient(180deg, var(--parchment) 0%, var(--parchment-soft) 100%);
+    border:1px solid rgba(36,29,20,0.18);
+    box-shadow:0 8px 18px rgba(10,6,2,0.28), inset 0 1px 0 rgba(255,255,255,0.5); }
+  .item-row { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+  .item-name { font-size:18px; font-weight:600; color:var(--ink); line-height:1.3; }
+  .item-price { font-size:18.5px; font-weight:700; color:#7a4a1a; flex:none; font-variant-numeric:tabular-nums; }
+  .item-desc { margin-top:4px; font-family:'EB Garamond',Georgia,serif; font-style:italic; font-size:14.5px;
+    line-height:1.4; color:var(--ink-soft); }
+  .cat-note { margin-top:6px; padding:0 4px; font-family:'EB Garamond',Georgia,serif; font-style:italic;
+    font-size:12.5px; line-height:1.5; color:rgba(244,231,205,0.75); text-align:center; }
+
+  .foot { margin-top:6px; padding:18px; display:flex; align-items:center; gap:14px; }
+  .foot::before, .foot::after { content:""; flex:1; height:1px; background:rgba(244,231,205,0.2); }
+  .foot-text { font-size:10px; letter-spacing:2px; color:rgba(244,231,205,0.55); flex:none; }
