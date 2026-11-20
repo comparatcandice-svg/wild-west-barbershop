@@ -195,3 +195,12 @@
   .foot { margin-top:6px; padding:18px; display:flex; align-items:center; gap:14px; }
   .foot::before, .foot::after { content:""; flex:1; height:1px; background:rgba(244,231,205,0.2); }
   .foot-text { font-size:10px; letter-spacing:2px; color:rgba(244,231,205,0.55); flex:none; }
+
+  /* ---------- gallery + booking button ---------- */
+  .gallery { columns:2; column-gap:10px; }
+  .gallery img { width:100%; display:block; margin-bottom:10px; border-radius:14px; break-inside:avoid;
+    border:1.5px solid rgba(244,231,205,0.45); box-shadow:0 8px 18px rgba(10,6,2,0.35); }
+  .book-cta { display:block; text-align:center; margin-top:14px; padding:16px 20px; border-radius:26px;
+    font-size:15px; font-weight:700; letter-spacing:2px; text-transform:uppercase; text-decoration:none;
+    color:var(--gold-bright); border:1.4px solid var(--gold);
+    background:linear-gradient(180deg, #6b4a26 0%, #3a2712 55%, #1c1409 100%); }
