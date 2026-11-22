@@ -17,7 +17,7 @@ const MENU = [
         zh: '经典发型剪裁与造型', fr: 'Coupe classique & coiffage' } },
       { name: 'The Fade', price: '200K', desc: {
         en: 'Any fade style', id: 'Gaya fade apa saja', ru: 'Любой стиль фейда',
-        zh: '任意渐变发型', fr: 'Tous styles de dégradé' } },
+        zh: '任意渐变发型', fr: 'Tous types de dégradés' } },
       { name: 'The Long Rider', price: '200K', desc: {
         en: 'Long hair trim & scissor work', id: 'Rapikan rambut panjang & teknik gunting', ru: 'Стрижка длинных волос ножницами',
         zh: '长发修剪与剪刀工艺', fr: 'Entretien des cheveux longs & travail aux ciseaux' } },
@@ -99,7 +99,7 @@ const MENU = [
       { group: 'groupSkin', items: [
         { name: 'Hideung Tanning Oil', size: '100ml', price: '275K', desc: {
           en: 'For that sun-kissed look', id: 'Untuk kulit tampak cokelat alami', ru: 'Для эффекта загара',
-          zh: '打造日晒古铜肤色', fr: 'Pour un look hâlé par le soleil' } }
+          zh: '打造日晒古铜肤色', fr: 'Pour un teint hâlé' } }
       ] }
     ]
   },

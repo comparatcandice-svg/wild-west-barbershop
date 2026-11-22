@@ -37,8 +37,10 @@
   function panelHTML(cat) {
     let h = '<div class="panel" id="panel-' + cat.id + '"><div class="panel-title"><span class="panel-mark"></span>' +
       '<span class="panel-title-text">' + t(cat.title) + '</span></div>';
-    if (cat.subtitle) h += '<div class="panel-sub">' + t(cat.subtitle) + '</div>';
-    if (cat.subtitle2) h += '<div class="panel-sub panel-sub--soft">' + t(cat.subtitle2) + '</div>';
+    if (cat.subtitle) {
+      h += '<div class="panel-sub"><div>' + t(cat.subtitle) + '</div>' +
+        (cat.subtitle2 ? '<div class="panel-sub--soft">' + t(cat.subtitle2) + '</div>' : '') + '</div>';
+    }
     cat.sections.forEach(sec => {
       if (sec.group) h += '<div class="sub-title">' + t(sec.group) + '</div>';
       sec.items.forEach(it => { h += itemHTML(it, cat.book); });

@@ -10,7 +10,7 @@ Règles : noms commerciaux en anglais (Classic Cut, The Drifter, Grit & Goods, W
 | Nom officiel (non traduit) | Prix | Anglais | Français |
 |---|---|---|---|
 | Classic Cut | 180K | Classic haircut & styling | **Coupe classique & coiffage** |
-| The Fade | 200K | Any fade style | **Tous styles de dégradé** |
+| The Fade | 200K | Any fade style | **Tous types de dégradés** |
 | The Long Rider | 200K | Long hair trim & scissor work | **Entretien des cheveux longs & travail aux ciseaux** |
 | Young Gun | 150K | Kids haircut | **Coupe enfant** |
 | Bald Trim | 100K | Clipper head shave | **Rasage de la tête à la tondeuse** |
@@ -40,7 +40,7 @@ Sous-titre : Choose your ride → **Choisissez votre monture**
 | The Outlaw | 300K | Haircut + Beard Shave | **Coupe + rasage de la barbe** |
 | The Gunslinger | 450K | Haircut + Beard Shave + Black Mask + Nose & Ear Wax | **Coupe + rasage de la barbe + Black Mask + épilation nez & oreilles à la cire** |
 
-Note : All WildWest packages include hot towel, cold towel & aftershave. → **Tous les packages WildWest incluent serviette chaude, serviette froide & après-rasage.**
+Note : All WildWest packages include hot towel, cold towel & aftershave. → **Toutes les formules WildWest comprennent une serviette chaude, une serviette froide et un soin après-rasage.**
 
 ### Grit & Goods → **Grit & Goods**
 
@@ -54,7 +54,7 @@ Sous-titre : WildWest Supply Co. → **WildWest Supply Co.**
 | Tezzen Delta Charcoal Clay (100g) | 250K | For hold & texture | **Pour la tenue & la texture** |
 | Tezzen Charlie Charcoal Clay (100g) | 250K | For natural hold & texture | **Pour une tenue & une texture naturelles** |
 | Black Friday Water Based Pomade (85g) | 250K | For a cleaner ride | **Pour un look plus net** |
-| Hideung Tanning Oil (100ml) | 275K | For that sun-kissed look | **Pour un look hâlé par le soleil** |
+| Hideung Tanning Oil (100ml) | 275K | For that sun-kissed look | **Pour un teint hâlé** |
 
 ### Drinks → **Drinks**
 
@@ -88,13 +88,13 @@ Sous-titre : Cold drinks for the road → **Boissons fraîches pour la route**
 | groupHair | Hair | **Cheveux** |
 | groupSkin | Skin | **Peau** |
 | noteTax | All prices include tax. Gratuity is always appreciated. | **Tous les prix incluent les taxes. Le pourboire est toujours apprécié.** |
-| notePackages | All WildWest packages include hot towel, cold towel & aftershave. | **Tous les packages WildWest incluent serviette chaude, serviette froide & après-rasage.** |
+| notePackages | All WildWest packages include hot towel, cold towel & aftershave. | **Toutes les formules WildWest comprennent une serviette chaude, une serviette froide et un soin après-rasage.** |
 | slogan | Ride well ★ Look sharp ★ Live true | **Ride well ★ Look sharp ★ Live true** |
 | bookItem | Book | **Réserver** |
 | bookWhatsApp | Book on WhatsApp | **Réserver sur WhatsApp** |
 | reviewsTitle | Trusted by Our Riders | **Nos riders nous font confiance** |
 | reviewsSub | Rated highly by our clients on Google. Real reviews from customers who stopped by Wild West Barbershop Bali. | **Très bien noté par nos clients sur Google. De vrais avis de clients passés chez Wild West Barbershop Bali.** |
-| reviewsBased | Based on {count} Google reviews | **Basé sur {count} avis Google** |
+| reviewsBased | Based on {count} Google reviews | **Note basée sur {count} avis Google** |
 | reviewsReadAll | Read all reviews | **Lire tous les avis** |
 | reviewsView | View on Google | **Voir sur Google** |
 | reviewsTranslated | Translated by Google | **Traduit par Google** |

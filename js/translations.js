@@ -51,7 +51,7 @@ const UI = {
     id: 'Semua paket WildWest termasuk handuk hangat, handuk dingin & aftershave.',
     ru: 'Все пакеты WildWest включают горячее полотенце, холодное полотенце и лосьон после бритья.',
     zh: '所有 WildWest 套餐均含热毛巾、冷毛巾及须后水。',
-    fr: 'Tous les packages WildWest incluent serviette chaude, serviette froide & après-rasage.'
+    fr: 'Toutes les formules WildWest comprennent une serviette chaude, une serviette froide et un soin après-rasage.'
   },
   /* Slogan : volontairement en anglais dans toutes les langues. */
   slogan: {
@@ -75,7 +75,7 @@ const UI = {
   },
   reviewsBased: {
     en: 'Based on {count} Google reviews', id: 'Berdasarkan {count} ulasan Google',
-    ru: 'На основе {count} отзывов Google', zh: '基于 {count} 条 Google 评价', fr: 'Basé sur {count} avis Google'
+    ru: 'На основе {count} отзывов Google', zh: '基于 {count} 条 Google 评价', fr: 'Note basée sur {count} avis Google'
   },
   reviewsReadAll: { en: 'Read all reviews', id: 'Baca semua ulasan', ru: 'Читать все отзывы', zh: '查看全部评价', fr: 'Lire tous les avis' },
   reviewsView: { en: 'View on Google', id: 'Lihat di Google', ru: 'Смотреть в Google', zh: '在 Google 上查看', fr: 'Voir sur Google' },

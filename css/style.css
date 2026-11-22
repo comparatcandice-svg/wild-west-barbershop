@@ -79,9 +79,13 @@
 
   .splash-logo-wrap { perspective:900px; margin-bottom:38px; }
   .logo-spin { position:relative; display:block; border-radius:50%;
+    -webkit-transform-style:preserve-3d; transform-style:preserve-3d;
     animation:logoSpin 4s ease-in-out infinite, logoGlow 4s ease-in-out infinite; }
-  .logo-frame { position:relative; width:100%; height:100%; border-radius:50%;
-    overflow:hidden; backface-visibility:hidden; }
+  .logo-frame { position:relative; width:100%; height:100%; border-radius:50%; overflow:hidden;
+    -webkit-clip-path:circle(50% at 50% 50%); clip-path:circle(50% at 50% 50%);
+    -webkit-backface-visibility:hidden; backface-visibility:hidden; }
+  /* Face arrière : le logo reste lisible (jamais en miroir) pendant la rotation 3D. */
+  .logo-frame--back { position:absolute; inset:0; -webkit-transform:rotateY(180deg); transform:rotateY(180deg); }
   .logo-frame img { width:100%; height:100%; display:block; object-fit:cover; border-radius:50%; }
   .logo-frame::before { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; border-radius:50%;
     background:linear-gradient(180deg, rgba(255,240,210,0.5) 0%, rgba(255,240,210,0.12) 26%, transparent 52%, rgba(0,0,0,0.2) 100%); }
@@ -256,3 +260,60 @@
     #menu-root .panel > :not(.panel-title) { max-width:760px; margin-left:auto; margin-right:auto; }
     #menu-root .panel-title { padding-left:calc((100% - 760px) / 2 + 18px); }
   }
+
+  /* Accessibilité : pas de rotation du logo si le visiteur a réglé « réduire les animations ». */
+  @media (prefers-reduced-motion: reduce) { .logo-spin { animation:none; } }
+
+  /* ---------- indice de défilement horizontal des catégories ----------
+     Dégradé discret + petite flèche dorée sur le bord où il reste des catégories à découvrir.
+     Les boutons eux-mêmes ne changent pas. Invisible quand tout tient à l'écran (ordinateur). */
+  .tabs-fade { position:absolute; top:16px; bottom:16px; width:46px; z-index:3; pointer-events:none;
+    opacity:0; transition:opacity .25s ease; }
+  .tabs-fade::after { position:absolute; top:50%; transform:translateY(-52%); font-size:24px; line-height:1;
+    color:var(--gold-bright); text-shadow:0 1px 4px rgba(10,6,2,0.7); font-family:Georgia,serif; }
+  .tabs-fade--right { right:0; border-radius:0 22px 22px 0;
+    background:linear-gradient(to right, rgba(36,26,14,0) 0%, rgba(36,26,14,0.5) 70%, rgba(36,26,14,0.62) 100%); }
+  .tabs-fade--right::after { content:"\203A"; right:8px; }
+  .tabs-fade--left { left:0; border-radius:22px 0 0 22px;
+    background:linear-gradient(to left, rgba(36,26,14,0) 0%, rgba(36,26,14,0.5) 70%, rgba(36,26,14,0.62) 100%); }
+  .tabs-fade--left::after { content:"\2039"; left:8px; }
+  .tabs-wrap.can-scroll-right .tabs-fade--right, .tabs-wrap.can-scroll-left .tabs-fade--left { opacity:1; }
+
+  /* ====================================================================
+     LISIBILITE sur les fonds illustrés (contraste mesuré, WCAG AA : 4,5 / 3 pour les grands titres)
+     - cartes un peu plus opaques en bas (la route et les montagnes ne transparaissent plus sous le texte)
+     - titres, sous-titres et notes posés sur la photo : plaque de cuir sombre, comme les boutons
+     - petits textes gris et étoiles dorées renforcés
+     ==================================================================== */
+  .item { background:linear-gradient(180deg, rgba(244,231,205,0.95) 0%, rgba(244,231,205,0.88) 100%); }
+
+  .panel-title { background:linear-gradient(180deg, rgba(40,28,15,0.80) 0%, rgba(40,28,15,0.72) 100%); }
+
+  .panel-sub, .cat-note, .reviews-sub, .sub-title {
+    display:block; width:fit-content; max-width:100%; margin-left:auto; margin-right:auto;
+    padding:7px 16px; border-radius:14px; text-align:center;
+    background:linear-gradient(180deg, rgba(58,40,22,0.86) 0%, rgba(32,22,11,0.88) 100%);
+    border:1px solid rgba(244,231,205,0.22); box-shadow:0 5px 12px rgba(10,6,2,0.28);
+    color:rgba(244,231,205,0.96); }
+  .panel-sub { margin-top:0; margin-bottom:14px; font-size:16px; }
+  .panel-sub--soft { margin-top:1px; font-size:14px; color:rgba(244,231,205,0.88); }
+  .reviews-sub { margin-top:0; margin-bottom:14px; }
+  .cat-note { margin-top:12px; font-size:13px; padding:7px 16px; }
+  .cat-note--slogan { margin-top:14px; color:rgba(244,231,205,0.96); }
+  .sub-title { margin-top:16px; margin-bottom:12px; padding:5px 18px; font-size:14px; color:var(--gold-bright); text-shadow:none; }
+
+  .item-size, .review-meta, .review-translated { color:var(--ink-soft); }
+  .rating-num small { color:var(--ink-soft); }
+  .rating-stars, .review-stars { color:#7a4d08; text-shadow:none; }
+  .item-book, .review-link { color:#6b3f12; }
+
+  /* La rotation 3D du logo ne doit jamais élargir la page (défilement horizontal parasite).
+     « clip » (et non « hidden ») : la barre d'onglets reste collante (position:sticky). */
+  .page, .page-header { overflow-x:clip; }
+  /* L'écran d'accueil masqué ne fait plus tourner son logo en arrière-plan. */
+  .splash.is-hidden, .splash.is-hidden * { animation-play-state:paused !important; }
+
+  /* Verre fumé un peu plus dense : le texte des onglets et des boutons rapides reste lisible
+     quand la barre colle en haut, sur la partie claire du ciel. Forme et style inchangés. */
+  .tab, .quick-links a { background:linear-gradient(180deg, rgba(60,42,24,0.72) 0%, rgba(30,20,10,0.78) 100%); }
+  .tab.active { background:linear-gradient(180deg, #6b4a26 0%, #3a2712 55%, #1c1409 90%); }

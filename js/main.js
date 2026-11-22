@@ -70,3 +70,16 @@ const splash = document.getElementById('splash');
 
     // le changement de langue peut modifier la hauteur de la barre d'onglets
     window.addEventListener('wwb-lang-change', () => { applyScrollMargin(); updateActiveOnScroll(); });
+
+    // ---- indice de défilement des catégories : dégradé + flèche sur le côté où il reste des onglets ----
+    const tabsScroll = document.getElementById('tabs-scroll');
+    function updateTabsHint() {
+      const max = tabsScroll.scrollWidth - tabsScroll.clientWidth;
+      tabsWrap.classList.toggle('can-scroll-left', tabsScroll.scrollLeft > 4);
+      tabsWrap.classList.toggle('can-scroll-right', max > 4 && tabsScroll.scrollLeft < max - 4);
+    }
+    tabsScroll.addEventListener('scroll', updateTabsHint, {passive:true});
+    window.addEventListener('resize', updateTabsHint);
+    window.addEventListener('wwb-lang-change', updateTabsHint);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateTabsHint);
+    updateTabsHint();
