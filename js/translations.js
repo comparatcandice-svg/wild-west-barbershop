@@ -83,12 +83,13 @@ const UI = {
   /* ---- WildWest Merch (vitrine ; aucun prix, aucune promesse commerciale) ---- */
   merchTitle: { en: 'WildWest Merch', id: 'WildWest Merch', ru: 'WildWest Merch', zh: 'WildWest Merch', fr: 'WildWest Merch' },
   merchIntro: {
-    en: "A little dust on the boots, a little rock'n'roll in the blood. A few illustrations from the shop's universe, in the shape of stickers and keychains.",
-    id: 'Sedikit debu di sepatu bot, sedikit rock\'n\'roll di darah. Beberapa ilustrasi dari dunia kedai kami, dalam bentuk stiker dan gantungan kunci.',
-    ru: 'Немного пыли на сапогах и капля рок-н-ролла в крови. Несколько иллюстраций из мира нашего салона — в виде стикеров и брелоков.',
-    zh: '靴上沾点尘土，血液里带点摇滚。来自店里世界的几幅插画，化作贴纸与钥匙扣。',
-    fr: "Un peu de poussière sur les bottes, un peu de rock'n'roll dans le sang. Quelques illustrations de l'univers du salon, en stickers et porte-clés."
+    en: 'A little dust on the boots, rock\u2019n\u2019roll in the blood. Discover the WildWest creations, from stickers to keychains.',
+    id: 'Sedikit debu di sepatu bot, rock\u2019n\u2019roll di dalam darah. Temukan kreasi WildWest, dari stiker hingga gantungan kunci.',
+    ru: 'Немного пыли на сапогах, рок-н-ролл в крови. Откройте для себя творения WildWest — от стикеров до брелоков.',
+    zh: '靴上沾点尘土，血液里流着摇滚。来看看 WildWest 的创作，有贴纸，也有钥匙扣。',
+    fr: 'Un peu de poussière sur les bottes, du rock\u2019n\u2019roll dans le sang. Découvrez les créations WildWest, entre stickers et porte-clés.'
   },
+
   merchStickers: { en: 'Stickers', id: 'Stiker', ru: 'Стикеры', zh: '贴纸', fr: 'Stickers' },
   merchKeychains: { en: 'Keychains', id: 'Gantungan kunci', ru: 'Брелоки', zh: '钥匙扣', fr: 'Porte-clés' },
   merchEnlarge: { en: 'Enlarge', id: 'Perbesar', ru: 'Увеличить', zh: '放大', fr: 'Agrandir' },

@@ -332,7 +332,7 @@
   .merch-card:focus-visible { outline:3px solid var(--gold-bright); outline-offset:2px; }
   /* stickers : cartes uniformes, proportions conservées, inclinaison alternée très légère */
   .merch-card--stickers { aspect-ratio:1 / 1.12; padding:14px; }
-  .merch-card--stickers img { display:block; width:auto; height:auto; max-width:100%; max-height:100%; object-fit:contain;
+  .merch-card--stickers img { display:block; width:min(calc(var(--wp, 80) * 1%), var(--nw, 100%)); height:auto; max-width:100%; max-height:100%;
     filter:drop-shadow(0 3px 5px rgba(10,6,2,0.28)); }
   .merch-cell:nth-child(odd) .merch-card--stickers { transform:rotate(-1deg); }
   .merch-cell:nth-child(even) .merch-card--stickers { transform:rotate(1deg); }
@@ -357,3 +357,7 @@
     color:#f4e7cd; border:1.4px solid rgba(244,231,205,0.5); background:linear-gradient(180deg, #4a3319 0%, #1c1409 100%); }
   .merch-lightbox-close:focus-visible { outline:3px solid var(--gold-bright); outline-offset:2px; }
   body.merch-open { overflow:hidden; }
+
+  /* espace vertical plus aéré entre la dernière rangée de stickers et le titre « Porte-clés » */
+  .merch .merch-grid + .merch-group-title { margin-top:38px; }
+  @media (min-width:800px) { .merch .merch-grid + .merch-group-title { margin-top:30px; } }

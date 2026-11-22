@@ -21,7 +21,15 @@
 
   function cardHTML(it, layout) {
     const price = it.showPrice === true && it.price ? '<span class="merch-price">' + esc(it.price) + '</span>' : '';
-    return '<li class="merch-cell"><button type="button" class="merch-card merch-card--' + layout + '" data-merch="' + esc(it.id) + '">' +
+    /* Harmonisation de la taille apparente des stickers : à SURFACE visuelle égale (largeur = T·√ratio),
+       bornée par la hauteur de la carte et par la taille native (jamais agrandi au-delà, jamais déformé). */
+    let sizing = '';
+    if (layout === 'stickers') {
+      const a = it.w / it.h, T = 84;
+      const wp = Math.min(T * Math.sqrt(a), 0.92 * 1.13 * a * 100, 92);
+      sizing = ' style="--wp:' + wp.toFixed(1) + ';--nw:' + it.w + 'px"';
+    }
+    return '<li class="merch-cell"><button type="button" class="merch-card merch-card--' + layout + '" data-merch="' + esc(it.id) + '"' + sizing + '>' +
       '<img src="' + esc(it.image) + '" width="' + it.w + '" height="' + it.h + '" loading="lazy" decoding="async" alt="">' +
       price + '</button></li>';
   }
