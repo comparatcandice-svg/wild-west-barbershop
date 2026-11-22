@@ -79,7 +79,20 @@ const UI = {
   },
   reviewsReadAll: { en: 'Read all reviews', id: 'Baca semua ulasan', ru: 'Читать все отзывы', zh: '查看全部评价', fr: 'Lire tous les avis' },
   reviewsView: { en: 'View on Google', id: 'Lihat di Google', ru: 'Смотреть в Google', zh: '在 Google 上查看', fr: 'Voir sur Google' },
-  reviewsTranslated: { en: 'Translated by Google', id: 'Diterjemahkan oleh Google', ru: 'Переведено Google', zh: '由 Google 翻译', fr: 'Traduit par Google' }
+  reviewsTranslated: { en: 'Translated by Google', id: 'Diterjemahkan oleh Google', ru: 'Переведено Google', zh: '由 Google 翻译', fr: 'Traduit par Google' },
+  /* ---- WildWest Merch (vitrine ; aucun prix, aucune promesse commerciale) ---- */
+  merchTitle: { en: 'WildWest Merch', id: 'WildWest Merch', ru: 'WildWest Merch', zh: 'WildWest Merch', fr: 'WildWest Merch' },
+  merchIntro: {
+    en: "A little dust on the boots, a little rock'n'roll in the blood. A few illustrations from the shop's universe, in the shape of stickers and keychains.",
+    id: 'Sedikit debu di sepatu bot, sedikit rock\'n\'roll di darah. Beberapa ilustrasi dari dunia kedai kami, dalam bentuk stiker dan gantungan kunci.',
+    ru: 'Немного пыли на сапогах и капля рок-н-ролла в крови. Несколько иллюстраций из мира нашего салона — в виде стикеров и брелоков.',
+    zh: '靴上沾点尘土，血液里带点摇滚。来自店里世界的几幅插画，化作贴纸与钥匙扣。',
+    fr: "Un peu de poussière sur les bottes, un peu de rock'n'roll dans le sang. Quelques illustrations de l'univers du salon, en stickers et porte-clés."
+  },
+  merchStickers: { en: 'Stickers', id: 'Stiker', ru: 'Стикеры', zh: '贴纸', fr: 'Stickers' },
+  merchKeychains: { en: 'Keychains', id: 'Gantungan kunci', ru: 'Брелоки', zh: '钥匙扣', fr: 'Porte-clés' },
+  merchEnlarge: { en: 'Enlarge', id: 'Perbesar', ru: 'Увеличить', zh: '放大', fr: 'Agrandir' },
+  merchClose: { en: 'Close', id: 'Tutup', ru: 'Закрыть', zh: '关闭', fr: 'Fermer' },
 };
 
 /* ---- messages WhatsApp pré-remplis ----

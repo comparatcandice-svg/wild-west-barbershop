@@ -50,6 +50,8 @@
     return h + '</div>';
   }
 
+  window.WWRender = { spans: spans, t: t, esc: esc }; // utilisé par merch.js
+
   const root = document.getElementById('menu-root');
   root.innerHTML = MENU.map(panelHTML).join('');
 

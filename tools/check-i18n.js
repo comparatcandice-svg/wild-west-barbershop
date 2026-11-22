@@ -6,9 +6,10 @@ const fs = require('fs'), vm = require('vm'), path = require('path');
 const dir = path.join(__dirname, '..', 'js');
 const ctx = {};
 vm.createContext(ctx);
-['translations.js', 'menu-data.js'].forEach(f => vm.runInContext(fs.readFileSync(path.join(dir, f), 'utf8') +
-  '\n;this.__e=Object.assign(this.__e||{},{' + (f === 'translations.js' ? 'LANGS,UI,WHATSAPP_MESSAGES' : 'MENU') + '});', ctx));
-const { LANGS, UI, WHATSAPP_MESSAGES, MENU } = ctx.__e;
+const EXPORTS = { 'translations.js': 'LANGS,UI,WHATSAPP_MESSAGES', 'menu-data.js': 'MENU', 'merch-data.js': 'MERCH' };
+Object.keys(EXPORTS).forEach(f => vm.runInContext(fs.readFileSync(path.join(dir, f), 'utf8') +
+  '\n;this.__e=Object.assign(this.__e||{},{' + EXPORTS[f] + '});', ctx));
+const { LANGS, UI, WHATSAPP_MESSAGES, MENU, MERCH } = ctx.__e;
 const problems = [];
 const need = (label, obj) => LANGS.forEach(l => {
   if (!(obj && typeof obj[l] === 'string' && obj[l].trim())) problems.push(label + ' -> langue manquante : ' + l);
@@ -31,6 +32,24 @@ MENU.forEach(cat => {
     });
   });
 });
-console.log(LANGS.length + ' langues, ' + Object.keys(UI).length + ' textes d\'interface, ' + items + ' articles de menu.');
+/* ---- WildWest Merch : textes, drapeaux de sécurité, absence de prix ---- */
+let merchItems = 0;
+if (MERCH.rightsConfirmed !== false) problems.push('MERCH.rightsConfirmed : ' + MERCH.rightsConfirmed + ' (doit rester false tant que les droits ne sont pas documentés)');
+if (MERCH.intro && !UI[MERCH.intro]) problems.push('MERCH.intro -> clé UI inconnue : ' + MERCH.intro);
+MERCH.collections.forEach(c => {
+  if (!UI[c.title]) problems.push('MERCH.' + c.id + '.title -> clé UI inconnue : ' + c.title);
+  c.items.forEach(it => {
+    merchItems++;
+    need('MERCH.' + it.id + '.alt', it.alt);
+    if (it.showPrice === true) problems.push('MERCH.' + it.id + ' : showPrice=true (aucun prix ne doit être affiché pour l\'instant)');
+    if (!(it.w > 0 && it.h > 0)) problems.push('MERCH.' + it.id + ' : dimensions natives w/h manquantes');
+    if (!/^images\/merch\/[a-z0-9-]+\.webp$/.test(it.image)) problems.push('MERCH.' + it.id + ' : chemin d\'image inattendu ' + it.image);
+  });
+});
+['merchTitle', 'merchIntro', 'merchStickers', 'merchKeychains', 'merchEnlarge', 'merchClose'].forEach(k => { if (!UI[k]) problems.push('UI.' + k + ' manquant'); });
+/* aucun mot promettant un prix ou une gratuité dans les textes merch */
+const banned = /free|gratuit|offert|gift|cadeau|complimentary|price|prix|buy|acheter|stock|disponible|available|IDR|\bK\b/i;
+['merchIntro', 'merchStickers', 'merchKeychains'].forEach(k => LANGS.forEach(l => { if (banned.test(UI[k][l])) problems.push('UI.' + k + '.' + l + ' contient un terme commercial interdit'); }));
+console.log(LANGS.length + ' langues, ' + Object.keys(UI).length + ' textes d\'interface, ' + items + ' articles de menu, ' + merchItems + ' visuels merch.');
 if (problems.length) { console.log('\nPROBLEMES (' + problems.length + ') :\n- ' + problems.join('\n- ')); process.exit(1); }
 console.log('OK : aucune traduction manquante.');
