@@ -1,0 +1,6 @@
+# Netlify : dossiers de développement non publics -> vrai statut HTTP 404.
+# Le « ! » force la règle même si le fichier existe. Les fichiers restent dans le dépôt.
+/docs      /404.html  404!
+/docs/*    /404.html  404!
+/tools     /404.html  404!
+/tools/*   /404.html  404!
