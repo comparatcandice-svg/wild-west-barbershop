@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="splash-hint-zone">
-        <div class="splash-hint btn3d"><span data-i18n="id">KETUK UNTUK LIHAT MENU</span><span data-i18n="en">TAP TO VIEW MENU</span><span data-i18n="ru">НАЖМИТЕ, ЧТОБЫ ОТКРЫТЬ МЕНЮ</span><span data-i18n="zh">点击查看菜单</span></div>
+        <div class="splash-hint btn3d" data-t="splashHint"></div>
       </div>
       <div class="splash-credit">narinagi digital services</div>
     </div>
@@ -40,225 +40,75 @@
       </div>
     </div>
 
-    <div class="lang-switch">
-<button class="lang-btn" data-lang="id">ID</button>
-<button class="lang-btn active" data-lang="en">EN</button>
-<button class="lang-btn" data-lang="ru">RU</button>
-<button class="lang-btn" data-lang="zh">中文</button>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="id" lang="id">ID</button>
+      <button class="lang-btn active" data-lang="en" lang="en">EN</button>
+      <button class="lang-btn" data-lang="ru" lang="ru">RU</button>
+      <button class="lang-btn" data-lang="zh" lang="zh-Hans">中文</button>
+      <button class="lang-btn" data-lang="fr" lang="fr">FR</button>
     </div>
 
     <div class="quick-links">
       <a class="btn3d" href="https://maps.app.goo.gl/5sfg58Nj1jkyGAoL7" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-        <span><span data-i18n="id">Lokasi</span><span data-i18n="en">Location</span><span data-i18n="ru">Локация</span><span data-i18n="zh">位置</span></span>
+        <span data-t="linkLocation"></span>
       </a>
       <a class="btn3d" href="https://www.instagram.com/wildwestbarbershopbali/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-        <span><span data-i18n="id">Instagram</span><span data-i18n="en">Instagram</span><span data-i18n="ru">Instagram</span><span data-i18n="zh">Instagram</span></span>
+        <span data-t="linkInstagram"></span>
       </a>
-      <a class="btn3d" href="https://wa.me/6282144834392?text=Hi%20Wild%20West%20Barbershop%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">
+      <a class="btn3d" data-wa href="https://wa.me/6282144834392" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M20.5 11.9a8.4 8.4 0 0 1-12.3 7.4L4 20.5l1.3-4a8.4 8.4 0 1 1 15.2-4.6z"/><path d="M8.5 8.9c.2-.5.5-.5.8-.5h.6c.2 0 .4 0 .6.5s.7 1.7.8 1.8.1.3 0 .5-.2.3-.4.5-.4.4-.2.7c.2.3.9 1.4 1.9 2.2 1.3 1 2.3 1.3 2.6 1.4s.5 0 .7-.2.8-.9 1-1.2.5-.2.8-.1l1.6.8c.2.1.4.2.4.4s0 1-.4 1.4-1.5 1.2-2.9 1.1-3.9-1.1-5.3-2.8-2-3.3-2.1-3.5"/></svg>
-        <span><span data-i18n="id">WhatsApp</span><span data-i18n="en">WhatsApp</span><span data-i18n="ru">WhatsApp</span><span data-i18n="zh">WhatsApp</span></span>
+        <span data-t="linkWhatsApp"></span>
       </a>
     </div>
 
     <div class="tabs-wrap" id="tabs-wrap">
-      <div class="tabs-scroll">
-<button class="tab btn3d active" data-target="panel-cuts"><span data-i18n="id">Potongan Rambut</span><span data-i18n="en">The Cuts</span><span data-i18n="ru">Стрижки</span><span data-i18n="zh">剪发</span></button>
-<button class="tab btn3d" data-target="panel-grooming"><span data-i18n="id">Perawatan</span><span data-i18n="en">The Grooming</span><span data-i18n="ru">Уход</span><span data-i18n="zh">护理</span></button>
-<button class="tab btn3d" data-target="panel-packages"><span data-i18n="id">Paket WildWest</span><span data-i18n="en">WildWest Packages</span><span data-i18n="ru">Пакеты WildWest</span><span data-i18n="zh">WildWest 套餐</span></button>
-<button class="tab btn3d" data-target="panel-drinks"><span data-i18n="id">Minuman</span><span data-i18n="en">Drinks</span><span data-i18n="ru">Напитки</span><span data-i18n="zh">饮品</span></button>
-<button class="tab btn3d" data-target="panel-goods">Grit &amp; Goods</button>
-<button class="tab btn3d" data-target="panel-reviews"><span data-i18n="id">Ulasan</span><span data-i18n="en">Reviews</span><span data-i18n="ru">Отзывы</span><span data-i18n="zh">评价</span></button>
-<button class="tab btn3d" data-target="panel-gallery"><span data-i18n="id">Galeri</span><span data-i18n="en">The Shop</span><span data-i18n="ru">Галерея</span><span data-i18n="zh">图库</span></button>
-
-      </div>
+      <div class="tabs-scroll" id="tabs-scroll"></div>
     </div>
 
+    <noscript><p class="reviews-sub">Please enable JavaScript to view the menu.</p></noscript>
 
-        <div class="panel" id="panel-cuts">
-          <div class="panel-title"><span class="panel-mark"></span><span class="panel-title-text"><span data-i18n="id">Potongan Rambut</span><span data-i18n="en">The Cuts</span><span data-i18n="ru">Стрижки</span><span data-i18n="zh">剪发</span></span></div>
-          
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Potongan Klasik</span><span data-i18n="en">Classic Cut</span><span data-i18n="ru">Классическая стрижка</span><span data-i18n="zh">经典理发</span></div>
-                <div class="item-price">180K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Potongan rambut & styling klasik</span><span data-i18n="en">Classic haircut & styling</span><span data-i18n="ru">Классическая стрижка и укладка</span><span data-i18n="zh">经典发型剪裁与造型</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">The Fade</span><span data-i18n="en">The Fade</span><span data-i18n="ru">Фейд</span><span data-i18n="zh">渐变剪</span></div>
-                <div class="item-price">200K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Gaya fade apa saja</span><span data-i18n="en">Any fade style</span><span data-i18n="ru">Любой стиль фейда</span><span data-i18n="zh">任意渐变发型</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">The Long Rider</span><span data-i18n="en">The Long Rider</span><span data-i18n="ru">Лонг Райдер</span><span data-i18n="zh">长骑手</span></div>
-                <div class="item-price">200K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Rapikan rambut panjang & teknik gunting</span><span data-i18n="en">Long hair trim & scissor work</span><span data-i18n="ru">Стрижка длинных волос ножницами</span><span data-i18n="zh">长发修剪与剪刀工艺</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Young Gun</span><span data-i18n="en">Young Gun</span><span data-i18n="ru">Янг Ган</span><span data-i18n="zh">小枪手</span></div>
-                <div class="item-price">150K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Potongan rambut anak</span><span data-i18n="en">Kids haircut</span><span data-i18n="ru">Детская стрижка</span><span data-i18n="zh">儿童理发</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Bald Trim</span><span data-i18n="en">Bald Trim</span><span data-i18n="ru">Бритьё машинкой</span><span data-i18n="zh">推剪光头</span></div>
-                <div class="item-price">100K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Cukur kepala dengan clipper</span><span data-i18n="en">Clipper head shave</span><span data-i18n="ru">Бритьё головы машинкой</span><span data-i18n="zh">电推剪剃头</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Bald Shave</span><span data-i18n="en">Bald Shave</span><span data-i18n="ru">Бритьё головы бритвой</span><span data-i18n="zh">剃刀光头</span></div>
-                <div class="item-price">200K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Cukur kepala penuh dengan pisau cukur</span><span data-i18n="en">Full head razor shave</span><span data-i18n="ru">Полное бритьё головы опасной бритвой</span><span data-i18n="zh">全头剃刀刮剃</span></div>
-            </div>
-          <div class="cat-note"><span data-i18n="id">Semua harga sudah termasuk pajak. Tip selalu diapresiasi.</span><span data-i18n="en">All prices include tax. Gratuity is always appreciated.</span><span data-i18n="ru">Все цены указаны с учётом налога. Чаевые всегда приветствуются.</span><span data-i18n="zh">所有价格均含税。欢迎给予小费。</span></div>
-        </div>
+    <!-- Menus (Cuts, Grooming, Packages, Grit & Goods, Drinks) : générés par js/render.js depuis js/menu-data.js -->
+    <div id="menu-root"></div>
 
-        <div class="panel" id="panel-grooming">
-          <div class="panel-title"><span class="panel-mark"></span><span class="panel-title-text"><span data-i18n="id">Perawatan</span><span data-i18n="en">The Grooming</span><span data-i18n="ru">Уход</span><span data-i18n="zh">护理</span></span></div>
-          
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Rapikan Jenggot</span><span data-i18n="en">Beard Trim</span><span data-i18n="ru">Оформление бороды</span><span data-i18n="zh">胡须修剪</span></div>
-                <div class="item-price">100K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Bentuk & rapikan jenggot</span><span data-i18n="en">Beard shaping & clean-up</span><span data-i18n="ru">Формирование и чистка бороды</span><span data-i18n="zh">胡须造型与清理</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Cukur Jenggot</span><span data-i18n="en">Beard Shave</span><span data-i18n="ru">Бритьё бороды</span><span data-i18n="zh">剃须</span></div>
-                <div class="item-price">150K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Cukur tradisional dengan pisau cukur</span><span data-i18n="en">Traditional razor shave</span><span data-i18n="ru">Традиционное бритьё опасной бритвой</span><span data-i18n="zh">传统剃刀刮胡</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Masker Hitam</span><span data-i18n="en">Black Mask</span><span data-i18n="ru">Чёрная маска</span><span data-i18n="zh">黑面膜</span></div>
-                <div class="item-price">150K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Masker arang pembersih mendalam · tambahkan ke layanan apa pun +100K</span><span data-i18n="en">Deep cleansing charcoal mask · add to any service +100K</span><span data-i18n="ru">Глубоко очищающая угольная маска · добавить к любой услуге +100K</span><span data-i18n="zh">深层清洁炭黑面膜 · 可加购任意服务 +100K</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Waxing Hidung</span><span data-i18n="en">Nose Wax</span><span data-i18n="ru">Восковая эпиляция носа</span><span data-i18n="zh">鼻毛脱蜡</span></div>
-                <div class="item-price">80K</div>
-              </div>
-              
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Waxing Telinga</span><span data-i18n="en">Ear Wax</span><span data-i18n="ru">Восковая эпиляция ушей</span><span data-i18n="zh">耳毛脱蜡</span></div>
-                <div class="item-price">60K</div>
-              </div>
-              
-            </div>
-          <div class="cat-note"><span data-i18n="id">Semua harga sudah termasuk pajak. Tip selalu diapresiasi.</span><span data-i18n="en">All prices include tax. Gratuity is always appreciated.</span><span data-i18n="ru">Все цены указаны с учётом налога. Чаевые всегда приветствуются.</span><span data-i18n="zh">所有价格均含税。欢迎给予小费。</span></div>
-        </div>
-
-        <div class="panel" id="panel-packages">
-          <div class="panel-title"><span class="panel-mark"></span><span class="panel-title-text"><span data-i18n="id">Paket WildWest</span><span data-i18n="en">WildWest Packages</span><span data-i18n="ru">Пакеты WildWest</span><span data-i18n="zh">WildWest 套餐</span></span></div>
-          
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">The Drifter</span><span data-i18n="en">The Drifter</span><span data-i18n="ru">Дрифтер</span><span data-i18n="zh">流浪者</span></div>
-                <div class="item-price">250K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Potong rambut + Rapikan jenggot</span><span data-i18n="en">Haircut + Beard Trim</span><span data-i18n="ru">Стрижка + оформление бороды</span><span data-i18n="zh">理发 + 胡须修剪</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">The Outlaw</span><span data-i18n="en">The Outlaw</span><span data-i18n="ru">Аутло</span><span data-i18n="zh">亡命之徒</span></div>
-                <div class="item-price">300K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Potong rambut + Cukur jenggot</span><span data-i18n="en">Haircut + Beard Shave</span><span data-i18n="ru">Стрижка + бритьё бороды</span><span data-i18n="zh">理发 + 剃须</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">The Gunslinger</span><span data-i18n="en">The Gunslinger</span><span data-i18n="ru">Ганслингер</span><span data-i18n="zh">枪手</span></div>
-                <div class="item-price">450K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Potong rambut + Cukur jenggot + Masker hitam + Waxing hidung & telinga</span><span data-i18n="en">Haircut + Beard Shave + Black Mask + Nose & Ear Wax</span><span data-i18n="ru">Стрижка + бритьё бороды + чёрная маска + воск для носа и ушей</span><span data-i18n="zh">理发 + 剃须 + 黑面膜 + 鼻耳脱蜡</span></div>
-            </div>
-          <div class="cat-note"><span data-i18n="id">Semua paket WildWest termasuk handuk hangat, handuk dingin & aftershave.</span><span data-i18n="en">All WildWest packages include hot towel, cold towel & aftershave.</span><span data-i18n="ru">Все пакеты WildWest включают горячее полотенце, холодное полотенце и лосьон после бритья.</span><span data-i18n="zh">所有WildWest套餐均含热毛巾、冷毛巾及须后水。</span></div>
-        </div>
-
-        <div class="panel" id="panel-drinks">
-          <div class="panel-title"><span class="panel-mark"></span><span class="panel-title-text"><span data-i18n="id">Minuman</span><span data-i18n="en">Drinks</span><span data-i18n="ru">Напитки</span><span data-i18n="zh">饮品</span></span></div>
-          
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Bintang</span><span data-i18n="en">Bintang</span><span data-i18n="ru">Bintang</span><span data-i18n="zh">Bintang 啤酒</span></div>
-                <div class="item-price">35K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Bir Pilsener, 330ml — bir dingin, santai saja.</span><span data-i18n="en">Pilsener Beer, 330ml — cold beer, easy ride.</span><span data-i18n="ru">Пиво пилснер, 330мл — холодное пиво, лёгкая дорога.</span><span data-i18n="zh">皮尔森啤酒，330毫升——冰爽啤酒，轻松上路。</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Coke Zero</span><span data-i18n="en">Coke Zero</span><span data-i18n="ru">Coca-Cola Zero</span><span data-i18n="zh">零度可乐</span></div>
-                <div class="item-price">20K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Tanpa gula, 250ml — segar, tegas & tanpa gula.</span><span data-i18n="en">Zero Sugar, 250ml — crisp, bold & zero sugar.</span><span data-i18n="ru">Без сахара, 250мл — освежающий, насыщенный вкус без сахара.</span><span data-i18n="zh">零糖，250毫升——清爽浓郁，零糖配方。</span></div>
-            </div>
-            <div class="item">
-              <div class="item-row">
-                <div class="item-name"><span data-i18n="id">Hydro Coco</span><span data-i18n="en">Hydro Coco</span><span data-i18n="ru">Hydro Coco</span><span data-i18n="zh">Hydro Coco 椰子水</span></div>
-                <div class="item-price">25K</div>
-              </div>
-              <div class="item-desc"><span data-i18n="id">Air kelapa, 250ml — hidrasi alami dari pulau ini.</span><span data-i18n="en">Coconut Water, 250ml — natural hydration from the island.</span><span data-i18n="ru">Кокосовая вода, 250мл — натуральная гидратация родом с острова.</span><span data-i18n="zh">椰子水，250毫升——来自岛屿的天然水分补给。</span></div>
-            </div>
-          <div class="cat-note"><span data-i18n="id">Berkendara baik ★ Tampil tajam ★ Hidup jujur</span><span data-i18n="en">Ride well ★ Look sharp ★ Live true</span><span data-i18n="ru">Езди достойно ★ Выгляди на уровне ★ Живи честно</span><span data-i18n="zh">策马前行 ★ 型格出众 ★ 真实生活</span></div>
-        </div>
-
-
-        <div class="panel" id="panel-goods">
-          <div class="panel-title"><span class="panel-mark"></span><span class="panel-title-text">Grit &amp; Goods</span></div>
-          <div class="cat-note" style="margin:-6px 0 14px"><span data-i18n="id">Perlengkapan untuk perjalanan.</span><span data-i18n="en">Tools for the road.</span><span data-i18n="ru">Инструменты для дороги.</span><span data-i18n="zh">路上的必备工具。</span></div>
-          <div class="sub-title"><span data-i18n="id">Rambut</span><span data-i18n="en">Hair</span><span data-i18n="ru">Волосы</span><span data-i18n="zh">发型</span></div><div class="item"><div class="item-row"><div class="item-name">Tezzen Hercules Charcoal Powder</div><div class="item-price">150K</div></div><div class="item-desc"><span data-i18n="id">Untuk volume & tekstur</span><span data-i18n="en">For volume & grit</span><span data-i18n="ru">Для объёма и фактуры</span><span data-i18n="zh">增加蓬松度与质感</span></div></div><div class="item"><div class="item-row"><div class="item-name">Captain Paste Fiber Wax</div><div class="item-price">100K</div></div><div class="item-desc"><span data-i18n="id">Untuk kontrol alami</span><span data-i18n="en">For natural control</span><span data-i18n="ru">Для естественной фиксации</span><span data-i18n="zh">自然定型</span></div></div><div class="item"><div class="item-row"><div class="item-name">Ventana Texture Salt Spray <small class="item-size">100ml</small></div><div class="item-price">125K</div></div><div class="item-desc"><span data-i18n="id">Untuk volume sebelum berkendara</span><span data-i18n="en">For volume before the ride</span><span data-i18n="ru">Для объёма перед поездкой</span><span data-i18n="zh">出发前打造蓬松感</span></div></div><div class="item"><div class="item-row"><div class="item-name">Tezzen Delta Charcoal Clay <small class="item-size">100g</small></div><div class="item-price">250K</div></div><div class="item-desc"><span data-i18n="id">Untuk daya tahan & tekstur</span><span data-i18n="en">For hold & texture</span><span data-i18n="ru">Для фиксации и фактуры</span><span data-i18n="zh">定型与质感</span></div></div><div class="item"><div class="item-row"><div class="item-name">Tezzen Charlie Charcoal Clay <small class="item-size">100g</small></div><div class="item-price">250K</div></div><div class="item-desc"><span data-i18n="id">Untuk daya tahan alami & tekstur</span><span data-i18n="en">For natural hold & texture</span><span data-i18n="ru">Для естественной фиксации и фактуры</span><span data-i18n="zh">自然定型与质感</span></div></div><div class="item"><div class="item-row"><div class="item-name">Black Friday Water Based Pomade <small class="item-size">85g</small></div><div class="item-price">250K</div></div><div class="item-desc"><span data-i18n="id">Untuk tampilan lebih rapi</span><span data-i18n="en">For a cleaner ride</span><span data-i18n="ru">Для более аккуратного образа</span><span data-i18n="zh">更清爽整洁</span></div></div><div class="sub-title"><span data-i18n="id">Wangi</span><span data-i18n="en">Scent</span><span data-i18n="ru">Аромат</span><span data-i18n="zh">香氛</span></div><div class="item"><div class="item-row"><div class="item-name">Masga — Blue Jeans <small class="item-size">30ml</small></div><div class="item-price">375K</div></div></div><div class="item"><div class="item-row"><div class="item-name">Masga — Oud Mood <small class="item-size">30ml</small></div><div class="item-price">375K</div></div></div><div class="item"><div class="item-row"><div class="item-name">Masga — Vanilla Wood <small class="item-size">30ml</small></div><div class="item-price">375K</div></div></div><div class="item"><div class="item-row"><div class="item-name">Masga — Leather Jacket <small class="item-size">50ml</small></div><div class="item-price">575K</div></div></div><div class="item"><div class="item-row"><div class="item-name">Masga — Black Wood <small class="item-size">50ml</small></div><div class="item-price">575K</div></div></div><div class="sub-title"><span data-i18n="id">Kulit</span><span data-i18n="en">Skin</span><span data-i18n="ru">Кожа</span><span data-i18n="zh">肌肤</span></div><div class="item"><div class="item-row"><div class="item-name">Hideung Tanning Oil <small class="item-size">100ml</small></div><div class="item-price">275K</div></div><div class="item-desc"><span data-i18n="id">Untuk kulit tampak cokelat alami</span><span data-i18n="en">For that sun-kissed look</span><span data-i18n="ru">Для эффекта загара</span><span data-i18n="zh">打造日晒古铜肤色</span></div></div>
-          <div class="cat-note"><span data-i18n="id">Berkendara baik ★ Tampil tajam ★ Hidup jujur</span><span data-i18n="en">Ride well ★ Look sharp ★ Live true</span><span data-i18n="ru">Езди достойно ★ Выгляди на уровне ★ Живи честно</span><span data-i18n="zh">策马前行 ★ 型格出众 ★ 真实生活</span></div>
-        </div>
-
-        <div class="panel" id="panel-reviews">
-          <div class="panel-title"><span class="panel-mark"></span><span class="panel-title-text"><span data-i18n="id">Dipercaya Para Rider Kami</span><span data-i18n="en">Trusted by Our Riders</span><span data-i18n="ru">Нам доверяют наши райдеры</span><span data-i18n="zh">深受我们车手信赖</span></span></div>
-          <p class="reviews-sub"><span data-i18n="id">Dinilai tinggi oleh klien kami di Google. Ulasan asli dari pelanggan yang mampir ke Wild West Barbershop Bali.</span><span data-i18n="en">Rated highly by our clients on Google. Real reviews from customers who stopped by Wild West Barbershop Bali.</span><span data-i18n="ru">Высоко оценён клиентами в Google. Настоящие отзывы гостей Wild West Barbershop Bali.</span><span data-i18n="zh">在 Google 上深受顾客好评。以下是光顾巴厘岛 Wild West Barbershop 的真实顾客评价。</span></p>
-          <div class="rating-card item">
-            <div class="rating-stars" aria-hidden="true">★★★★★</div>
-            <div class="rating-num"><span class="js-rating"></span><small>/ 5</small></div>
-            <div class="rating-count"><span data-i18n="id">Berdasarkan <b class="js-count"></b> ulasan Google</span><span data-i18n="en">Based on <b class="js-count"></b> Google reviews</span><span data-i18n="ru">На основе <b class="js-count"></b> отзывов Google</span><span data-i18n="zh">基于 <b class="js-count"></b> 条 Google 评价</span></div>
-            <a class="book-cta btn3d js-maps" href="#" target="_blank" rel="noopener"><span data-i18n="id">Baca semua ulasan</span><span data-i18n="en">Read all reviews</span><span data-i18n="ru">Читать все отзывы</span><span data-i18n="zh">查看全部评价</span></a>
+    <!-- Avis Google : données dans js/reviews-data.js -->
+    <div class="panel" id="panel-reviews">
+      <div class="panel-title"><span class="panel-mark"></span><span class="panel-title-text" data-t="reviewsTitle"></span></div>
+      <p class="reviews-sub" data-t="reviewsSub"></p>
+      <div class="rating-card item">
+        <div class="rating-stars" aria-hidden="true">★★★★★</div>
+        <div class="rating-num"><span class="js-rating"></span><small>/ 5</small></div>
+        <div class="rating-count" data-t="reviewsBased"></div>
+        <a class="book-cta btn3d js-maps" href="#" target="_blank" rel="noopener" data-t="reviewsReadAll"></a>
+      </div>
+      <div class="review-list"></div>
+      <template id="review-template">
+        <div class="item review-card">
+          <div class="review-head"><span class="review-name"></span><span class="review-stars" aria-label="5 stars"></span></div>
+          <div class="review-text"></div>
+          <div class="review-foot">
+            <span class="review-meta"><span class="review-date"></span><span class="review-translated" data-t="reviewsTranslated"></span></span>
+            <a class="review-link" href="#" target="_blank" rel="noopener" data-t="reviewsView"></a>
           </div>
-          <div class="review-list"></div>
-          <template id="review-template">
-            <div class="item review-card">
-              <div class="review-head"><span class="review-name"></span><span class="review-stars" aria-label="5 stars"></span></div>
-              <div class="review-text"></div>
-              <div class="review-foot">
-                <span class="review-meta"><span class="review-date"></span><span class="review-translated"><span data-i18n="id">Diterjemahkan oleh Google</span><span data-i18n="en">Translated by Google</span><span data-i18n="ru">Переведено Google</span><span data-i18n="zh">由 Google 翻译</span></span></span>
-                <a class="review-link js-link" href="#" target="_blank" rel="noopener"><span data-i18n="id">Lihat di Google</span><span data-i18n="en">View on Google</span><span data-i18n="ru">Смотреть в Google</span><span data-i18n="zh">在 Google 上查看</span></a>
-              </div>
-            </div>
-          </template>
         </div>
+      </template>
+    </div>
 
-        <div class="panel" id="panel-gallery">
-          <div class="panel-title"><span class="panel-mark"></span><span class="panel-title-text"><span data-i18n="id">Galeri</span><span data-i18n="en">The Shop</span><span data-i18n="ru">Галерея</span><span data-i18n="zh">图库</span></span></div>
-          <div class="gallery"><img src="images/client-1.jpg" alt="Wild West Barbershop Bali — Before and after: a fresh cut" loading="lazy"><img src="images/client-2.jpg" alt="Wild West Barbershop Bali — Beard trim and clean-up" loading="lazy"><img src="images/chair.jpg" alt="Wild West Barbershop Bali — Vintage barber chair" loading="lazy"><img src="images/lounge.jpg" alt="Wild West Barbershop Bali — Waiting lounge" loading="lazy"><img src="images/tools.jpg" alt="Wild West Barbershop Bali — Our tools" loading="lazy"><img src="images/chair-back.jpg" alt="Wild West Barbershop Bali — The chair by the window" loading="lazy"></div>
-          <a class="book-cta btn3d" href="https://wa.me/6282144834392?text=Hi%20Wild%20West%20Barbershop%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><span data-i18n="id">Pesan via WhatsApp</span><span data-i18n="en">Book on WhatsApp</span><span data-i18n="ru">Записаться в WhatsApp</span><span data-i18n="zh">WhatsApp 预约</span></a>
-        </div>
+    <!-- Galerie -->
+    <div class="panel" id="panel-gallery">
+      <div class="panel-title"><span class="panel-mark"></span><span class="panel-title-text" data-t="titleGallery"></span></div>
+      <div class="gallery"><img src="images/client-1.jpg" alt="Wild West Barbershop Bali — Before and after: a fresh cut" loading="lazy"><img src="images/client-2.jpg" alt="Wild West Barbershop Bali — Beard trim and clean-up" loading="lazy"><img src="images/chair.jpg" alt="Wild West Barbershop Bali — Vintage barber chair" loading="lazy"><img src="images/lounge.jpg" alt="Wild West Barbershop Bali — Waiting lounge" loading="lazy"><img src="images/tools.jpg" alt="Wild West Barbershop Bali — Our tools" loading="lazy"><img src="images/chair-back.jpg" alt="Wild West Barbershop Bali — The chair by the window" loading="lazy"></div>
+      <a class="book-cta btn3d" data-wa href="https://wa.me/6282144834392" target="_blank" rel="noopener" data-t="bookWhatsApp"></a>
+    </div>
 
     <div class="foot"><div class="foot-text">narinagi digital services</div></div>
   </div>
 
+  <script src="js/translations.js"></script>
+  <script src="js/menu-data.js"></script>
   <script src="js/reviews-data.js"></script>
+  <script src="js/render.js"></script>
   <script src="js/reviews.js"></script>
   <script src="js/main.js"></script>
 </body></html>

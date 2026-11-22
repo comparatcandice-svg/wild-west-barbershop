@@ -68,11 +68,5 @@ const splash = document.getElementById('splash');
     }, {passive:true});
     updateActiveOnScroll();
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.body.className = document.body.className.replace(/lang-\S+/g, '').trim();
-        document.body.classList.add('lang-' + btn.dataset.lang);
-      });
-    });
+    // le changement de langue peut modifier la hauteur de la barre d'onglets
+    window.addEventListener('wwb-lang-change', () => { applyScrollMargin(); updateActiveOnScroll(); });
