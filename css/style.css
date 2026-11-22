@@ -241,9 +241,18 @@
   .panel-sub { margin:-6px 0 12px; text-align:center; font-family:'EB Garamond',Georgia,serif; font-style:italic;
     font-size:16px; letter-spacing:0.4px; color:rgba(244,231,205,0.9); }
   .panel-sub--soft { margin-top:-8px; font-size:14px; color:rgba(244,231,205,0.7); }
-  body.lang-en .item-desc--gloss { display:none; }
   .item-sub { display:flex; justify-content:space-between; align-items:flex-end; gap:12px; }
   .item-lines { flex:1; min-width:0; }
   .item-book { font-size:12px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:#7a4a1a;
     text-decoration:underline; text-underline-offset:3px; flex:none; white-space:nowrap; padding:4px 0 0 8px; }
   .cat-note--slogan { margin-top:14px; font-size:14px; letter-spacing:1.5px; color:rgba(244,231,205,0.85); }
+
+  /* ---------- ordinateur : cartes des menus centrées, 760 px maximum ----------
+     Mobile (< 800 px) : pleine largeur disponible, inchangé.
+     Les 5 menus (The Cuts, The Grooming, WildWest Packages, Grit & Goods, Drinks)
+     partagent exactement la même règle. Le bandeau de titre reste pleine largeur,
+     son texte s'aligne sur le bord gauche des cartes. */
+  @media (min-width:800px) {
+    #menu-root .panel > :not(.panel-title) { max-width:760px; margin-left:auto; margin-right:auto; }
+    #menu-root .panel-title { padding-left:calc((100% - 760px) / 2 + 18px); }
+  }

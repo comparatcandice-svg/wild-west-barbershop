@@ -10,8 +10,8 @@ vm.createContext(ctx);
   '\n;this.__e=Object.assign(this.__e||{},{' + (f === 'translations.js' ? 'LANGS,UI,WHATSAPP_MESSAGES' : 'MENU') + '});', ctx));
 const { LANGS, UI, WHATSAPP_MESSAGES, MENU } = ctx.__e;
 const problems = [];
-const need = (label, obj, optionalEn) => LANGS.forEach(l => {
-  if (!(obj && typeof obj[l] === 'string' && (obj[l].trim() || (optionalEn && l === 'en')))) problems.push(label + ' -> langue manquante : ' + l);
+const need = (label, obj) => LANGS.forEach(l => {
+  if (!(obj && typeof obj[l] === 'string' && obj[l].trim())) problems.push(label + ' -> langue manquante : ' + l);
 });
 Object.entries(UI).forEach(([k, v]) => need('UI.' + k, v));
 Object.entries(WHATSAPP_MESSAGES).forEach(([k, v]) => need('WHATSAPP.' + k, v));
@@ -26,7 +26,7 @@ MENU.forEach(cat => {
     sec.items.forEach(it => {
       items++;
       if (!/^\d+K$/.test(it.price)) problems.push(it.name + ' -> prix inattendu : ' + it.price);
-      if (it.desc) need(it.name + '.desc', it.desc, !!it.gloss);
+      if (it.desc) need(it.name + '.desc', it.desc);
       if (it.desc2) need(it.name + '.desc2', it.desc2);
     });
   });

@@ -25,8 +25,8 @@ Note : All prices include tax. Gratuity is always appreciated. → **Tous les pr
 | Beard Trim | 100K | Beard shaping & clean-up | **Mise en forme & entretien de la barbe** |
 | Beard Shave | 150K | Traditional razor shave | **Rasage traditionnel au rasoir** |
 | Black Mask | 150K | Deep cleansing charcoal mask<br>Add to any service: +100K | **Masque au charbon purifiant en profondeur**<br>**À ajouter à toute prestation : +100K** |
-| Nose Wax | 80K | — | **Épilation des narines à la cire** |
-| Ear Wax | 60K | — | **Épilation des oreilles à la cire** |
+| Nose Wax | 80K | Nose hair waxing | **Épilation des poils du nez à la cire** |
+| Ear Wax | 60K | Ear hair waxing | **Épilation des poils des oreilles à la cire** |
 
 Note : All prices include tax. Gratuity is always appreciated. → **Tous les prix incluent les taxes. Le pourboire est toujours apprécié.**
 

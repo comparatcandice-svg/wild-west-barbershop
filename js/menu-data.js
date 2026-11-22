@@ -5,8 +5,6 @@
    - price : en roupies indonésiennes (K = 1 000 IDR), sans conversion.
    - size  : contenance affichée à côté du nom (optionnel).
    - desc / desc2 : lignes de description, par langue (en, id, ru, zh, fr).
-   - gloss : true = description affichée seulement hors anglais
-             (explication d'un nom, absente du menu officiel).
    - book  : true = bouton « Book » WhatsApp avec le nom de la prestation.
    Pour modifier un prix ou ajouter un produit : modifier uniquement ici.
    ===================================================================== */
@@ -50,12 +48,12 @@ const MENU = [
         desc2: {
           en: 'Add to any service: +100K', id: 'Tambahkan ke layanan apa pun: +100K', ru: 'Добавить к любой услуге: +100K',
           zh: '可加购任意服务：+100K', fr: 'À ajouter à toute prestation : +100K' } },
-      { name: 'Nose Wax', price: '80K', gloss: true, desc: {
-        en: '', id: 'Waxing bulu hidung', ru: 'Удаление волос в носу воском',
-        zh: '用蜡去除鼻毛', fr: 'Épilation des narines à la cire' } },
-      { name: 'Ear Wax', price: '60K', gloss: true, desc: {
-        en: '', id: 'Waxing bulu telinga', ru: 'Удаление волос в ушах воском',
-        zh: '用蜡去除耳毛', fr: 'Épilation des oreilles à la cire' } }
+      { name: 'Nose Wax', price: '80K', desc: {
+        en: 'Nose hair waxing', id: 'Waxing bulu hidung', ru: 'Удаление волос в носу воском',
+        zh: '用蜡去除鼻毛', fr: 'Épilation des poils du nez à la cire' } },
+      { name: 'Ear Wax', price: '60K', desc: {
+        en: 'Ear hair waxing', id: 'Waxing bulu telinga', ru: 'Удаление волос в ушах воском',
+        zh: '用蜡去除耳毛', fr: 'Épilation des poils des oreilles à la cire' } }
     ] }]
   },
   {

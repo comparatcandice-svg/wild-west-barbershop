@@ -22,7 +22,7 @@
     let h = '<div class="item"><div class="item-row"><div class="item-name">' + esc(it.name) + size +
       '</div><div class="item-price">' + esc(it.price) + '</div></div>';
     let lines = '';
-    if (it.desc) lines += '<div class="item-desc' + (it.gloss ? ' item-desc--gloss' : '') + '">' + spans(it.desc) + '</div>';
+    if (it.desc) lines += '<div class="item-desc">' + spans(it.desc) + '</div>';
     if (it.desc2) lines += '<div class="item-desc">' + spans(it.desc2) + '</div>';
     if (bookable) {
       /* le bouton partage la ligne de description : pas de ligne supplémentaire par carte */
