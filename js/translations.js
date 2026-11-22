@@ -19,12 +19,14 @@ const UI = {
   linkInstagram: { en: 'Instagram', id: 'Instagram', ru: 'Instagram', zh: 'Instagram', fr: 'Instagram' },
   linkWhatsApp: { en: 'WhatsApp', id: 'WhatsApp', ru: 'WhatsApp', zh: 'WhatsApp', fr: 'WhatsApp' },
 
-  /* ---- titres des sections (onglets et bandeaux) ---- */
-  titleCuts: { en: 'The Cuts', id: 'Potongan Rambut', ru: 'Стрижки', zh: '剪发', fr: 'Les coupes' },
-  titleGrooming: { en: 'The Grooming', id: 'Perawatan', ru: 'Уход', zh: '护理', fr: 'Les soins' },
-  titlePackages: { en: 'WildWest Packages', id: 'Paket WildWest', ru: 'Пакеты WildWest', zh: 'WildWest 套餐', fr: 'Packages WildWest' },
+  /* ---- titres des sections (onglets et bandeaux) ----
+     The Cuts, The Grooming, WildWest Packages, Grit & Goods, Drinks : noms officiels,
+     identiques dans les 5 langues. Reviews et The Shop (galerie) restent traduits. */
+  titleCuts: { en: 'The Cuts', id: 'The Cuts', ru: 'The Cuts', zh: 'The Cuts', fr: 'The Cuts' },
+  titleGrooming: { en: 'The Grooming', id: 'The Grooming', ru: 'The Grooming', zh: 'The Grooming', fr: 'The Grooming' },
+  titlePackages: { en: 'WildWest Packages', id: 'WildWest Packages', ru: 'WildWest Packages', zh: 'WildWest Packages', fr: 'WildWest Packages' },
   titleGoods: { en: 'Grit & Goods', id: 'Grit & Goods', ru: 'Grit & Goods', zh: 'Grit & Goods', fr: 'Grit & Goods' },
-  titleDrinks: { en: 'Drinks', id: 'Minuman', ru: 'Напитки', zh: '饮品', fr: 'Boissons' },
+  titleDrinks: { en: 'Drinks', id: 'Drinks', ru: 'Drinks', zh: 'Drinks', fr: 'Drinks' },
   titleReviews: { en: 'Reviews', id: 'Ulasan', ru: 'Отзывы', zh: '评价', fr: 'Avis' },
   titleGallery: { en: 'The Shop', id: 'Galeri', ru: 'Галерея', zh: '图库', fr: 'Le salon' },
 

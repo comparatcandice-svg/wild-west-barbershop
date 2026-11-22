@@ -5,7 +5,7 @@ Règles : noms commerciaux en anglais (Classic Cut, The Drifter, Grit & Goods, W
 
 ## 1. Menus (prestations, produits, boissons)
 
-### The Cuts → **Les coupes**
+### The Cuts → **The Cuts**
 
 | Nom officiel (non traduit) | Prix | Anglais | Français |
 |---|---|---|---|
@@ -18,7 +18,7 @@ Règles : noms commerciaux en anglais (Classic Cut, The Drifter, Grit & Goods, W
 
 Note : All prices include tax. Gratuity is always appreciated. → **Tous les prix incluent les taxes. Le pourboire est toujours apprécié.**
 
-### The Grooming → **Les soins**
+### The Grooming → **The Grooming**
 
 | Nom officiel (non traduit) | Prix | Anglais | Français |
 |---|---|---|---|
@@ -30,7 +30,7 @@ Note : All prices include tax. Gratuity is always appreciated. → **Tous les pr
 
 Note : All prices include tax. Gratuity is always appreciated. → **Tous les prix incluent les taxes. Le pourboire est toujours apprécié.**
 
-### WildWest Packages → **Packages WildWest**
+### WildWest Packages → **WildWest Packages**
 
 Sous-titre : Choose your ride → **Choisissez votre monture**
 
@@ -56,7 +56,7 @@ Sous-titre : WildWest Supply Co. → **WildWest Supply Co.**
 | Black Friday Water Based Pomade (85g) | 250K | For a cleaner ride | **Pour un look plus net** |
 | Hideung Tanning Oil (100ml) | 275K | For that sun-kissed look | **Pour un look hâlé par le soleil** |
 
-### Drinks → **Boissons**
+### Drinks → **Drinks**
 
 Sous-titre : Cold drinks for the road → **Boissons fraîches pour la route**
 
@@ -74,11 +74,11 @@ Sous-titre : Cold drinks for the road → **Boissons fraîches pour la route**
 | linkLocation | Location | **Localisation** |
 | linkInstagram | Instagram | **Instagram** |
 | linkWhatsApp | WhatsApp | **WhatsApp** |
-| titleCuts | The Cuts | **Les coupes** |
-| titleGrooming | The Grooming | **Les soins** |
-| titlePackages | WildWest Packages | **Packages WildWest** |
+| titleCuts | The Cuts | **The Cuts** |
+| titleGrooming | The Grooming | **The Grooming** |
+| titlePackages | WildWest Packages | **WildWest Packages** |
 | titleGoods | Grit & Goods | **Grit & Goods** |
-| titleDrinks | Drinks | **Boissons** |
+| titleDrinks | Drinks | **Drinks** |
 | titleReviews | Reviews | **Avis** |
 | titleGallery | The Shop | **Le salon** |
 | subPackages | Choose your ride | **Choisissez votre monture** |

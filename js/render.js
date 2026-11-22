@@ -21,11 +21,15 @@
     const size = it.size ? ' <small class="item-size">' + esc(it.size) + '</small>' : '';
     let h = '<div class="item"><div class="item-row"><div class="item-name">' + esc(it.name) + size +
       '</div><div class="item-price">' + esc(it.price) + '</div></div>';
-    if (it.desc) h += '<div class="item-desc' + (it.gloss ? ' item-desc--gloss' : '') + '">' + spans(it.desc) + '</div>';
-    if (it.desc2) h += '<div class="item-desc">' + spans(it.desc2) + '</div>';
+    let lines = '';
+    if (it.desc) lines += '<div class="item-desc' + (it.gloss ? ' item-desc--gloss' : '') + '">' + spans(it.desc) + '</div>';
+    if (it.desc2) lines += '<div class="item-desc">' + spans(it.desc2) + '</div>';
     if (bookable) {
-      h += '<div class="item-actions"><a class="item-book" data-wa data-service="' + esc(it.name) +
-        '" href="#" target="_blank" rel="noopener">' + t('bookItem') + ' ›</a></div>';
+      /* le bouton partage la ligne de description : pas de ligne supplémentaire par carte */
+      h += '<div class="item-sub"><div class="item-lines">' + lines + '</div><a class="item-book" data-wa data-service="' +
+        esc(it.name) + '" href="#" target="_blank" rel="noopener">' + t('bookItem') + ' \u203A</a></div>';
+    } else {
+      h += lines;
     }
     return h + '</div>';
   }

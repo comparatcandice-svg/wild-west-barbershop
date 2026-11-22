@@ -242,7 +242,8 @@
     font-size:16px; letter-spacing:0.4px; color:rgba(244,231,205,0.9); }
   .panel-sub--soft { margin-top:-8px; font-size:14px; color:rgba(244,231,205,0.7); }
   body.lang-en .item-desc--gloss { display:none; }
-  .item-actions { margin-top:8px; text-align:right; }
+  .item-sub { display:flex; justify-content:space-between; align-items:flex-end; gap:12px; }
+  .item-lines { flex:1; min-width:0; }
   .item-book { font-size:12px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:#7a4a1a;
-    text-decoration:underline; text-underline-offset:3px; padding:6px 0 6px 10px; }
+    text-decoration:underline; text-underline-offset:3px; flex:none; white-space:nowrap; padding:4px 0 0 8px; }
   .cat-note--slogan { margin-top:14px; font-size:14px; letter-spacing:1.5px; color:rgba(244,231,205,0.85); }
