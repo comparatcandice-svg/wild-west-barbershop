@@ -19,6 +19,9 @@
    - w / h : dimensions NATIVES de l'image en pixels. L'image n'est jamais
      affichée ni agrandie au-delà de ces dimensions.
 
+   Un visuel peut être retiré provisoirement : le supprimer de la liste (ou visible:false).
+   Il reste alors dans les ressources locales, hors dépôt.
+
    AJOUTER UNE COLLECTION OU UN ARTICLE (modèle générique, à copier)
    { id: 'collection-id', title: 'cléDeTitreDansTranslations', layout: 'stickers' | 'photos',
      visible: false,                       // passer à true uniquement une fois validé
@@ -46,10 +49,7 @@ const MERCH = {
       { id: 'barber-pole', image: 'images/merch/barber-pole.webp', w: 126, h: 393, visible: true, price: null, showPrice: false,
         alt: { en: 'Striped barber pole', id: 'Tiang barber bergaris', ru: 'Полосатый барберский столб', zh: '条纹理发店旋转灯柱', fr: 'Poteau de barbier rayé' } },
       { id: 'cowboy-boot', image: 'images/merch/cowboy-boot.webp', w: 264, h: 290, visible: true, price: null, showPrice: false,
-        alt: { en: 'Cowboy boot with a spur', id: 'Sepatu bot koboi dengan taji', ru: 'Ковбойский сапог со шпорой', zh: '带马刺的牛仔靴', fr: 'Botte de cowboy avec éperon' } },
-      { id: 'modern-life-is-rubbish', image: 'images/merch/modern-life-is-rubbish.webp', w: 171, h: 119, visible: true, price: null, showPrice: false,
-        alt: { en: 'Sticker reading “Modern Life Is Rubbish”', id: 'Stiker bertuliskan “Modern Life Is Rubbish”', ru: 'Стикер с надписью «Modern Life Is Rubbish»',
-          zh: '写着“Modern Life Is Rubbish”的贴纸', fr: 'Sticker « Modern Life Is Rubbish »' } }
+        alt: { en: 'Cowboy boot with a spur', id: 'Sepatu bot koboi dengan taji', ru: 'Ковбойский сапог со шпорой', zh: '带马刺的牛仔靴', fr: 'Botte de cowboy avec éperon' } }
     ] },
     { id: 'keychains', title: 'merchKeychains', layout: 'photos', visible: true, items: [
       { id: 'keychain-cactus', image: 'images/merch/keychain-cactus.webp', w: 384, h: 512, visible: true, price: null, showPrice: false,
