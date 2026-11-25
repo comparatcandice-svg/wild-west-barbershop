@@ -6,11 +6,13 @@
    - size  : contenance affichée à côté du nom (optionnel).
    - desc / desc2 : lignes de description, par langue (en, id, ru, zh, fr).
    - book  : true = bouton « Book » WhatsApp avec le nom de la prestation.
+   - layout: 'board' = menu vintage (un seul tableau, lignes à points de conduite) ;
+             'tickets' = tickets terracotta ; absent = cartes (Grit & Goods, Drinks).
    Pour modifier un prix ou ajouter un produit : modifier uniquement ici.
    ===================================================================== */
 const MENU = [
   {
-    id: 'cuts', title: 'titleCuts', note: 'noteTax', book: true,
+    id: 'cuts', layout: 'board', title: 'titleCuts', note: 'noteTax', book: true,
     sections: [{ items: [
       { name: 'Classic Cut', price: '180K', desc: {
         en: 'Classic haircut & styling', id: 'Potongan rambut & styling klasik', ru: 'Классическая стрижка и укладка',
@@ -33,7 +35,7 @@ const MENU = [
     ] }]
   },
   {
-    id: 'grooming', title: 'titleGrooming', note: 'noteTax', book: true,
+    id: 'grooming', layout: 'board', title: 'titleGrooming', note: 'noteTax', book: true,
     sections: [{ items: [
       { name: 'Beard Trim', price: '100K', desc: {
         en: 'Beard shaping & clean-up', id: 'Bentuk & rapikan jenggot', ru: 'Формирование и чистка бороды',
@@ -57,7 +59,7 @@ const MENU = [
     ] }]
   },
   {
-    id: 'packages', title: 'titlePackages', subtitle: 'subPackages', note: 'notePackages', book: true,
+    id: 'packages', layout: 'tickets', title: 'titlePackages', subtitle: 'subPackages', note: 'notePackages', book: true,
     sections: [{ items: [
       { name: 'The Drifter', price: '250K', desc: {
         en: 'Haircut + Beard Trim', id: 'Potong rambut + Rapikan jenggot', ru: 'Стрижка + оформление бороды',

@@ -35,7 +35,7 @@
   }
 
   function panelHTML(cat) {
-    let h = '<div class="panel" id="panel-' + cat.id + '"><div class="panel-title"><span class="panel-mark"></span>' +
+    let h = '<div class="panel' + (cat.layout ? ' panel--' + cat.layout : '') + '" id="panel-' + cat.id + '"><div class="panel-title"><span class="panel-mark"></span>' +
       '<span class="panel-title-text">' + t(cat.title) + '</span></div>';
     if (cat.subtitle) {
       h += '<div class="panel-sub"><div>' + t(cat.subtitle) + '</div>' +
@@ -43,7 +43,9 @@
     }
     cat.sections.forEach(sec => {
       if (sec.group) h += '<div class="sub-title">' + t(sec.group) + '</div>';
-      sec.items.forEach(it => { h += itemHTML(it, cat.book); });
+      const items = sec.items.map(it => itemHTML(it, cat.book)).join('');
+      /* menu vintage : toutes les lignes dans un seul tableau (même composant sur mobile et ordinateur) */
+      h += cat.layout === 'board' ? '<div class="board">' + items + '</div>' : items;
     });
     if (cat.note) h += '<div class="cat-note">' + t(cat.note) + '</div>';
     if (cat.closing) h += '<div class="cat-note cat-note--slogan">' + t(cat.closing) + '</div>';
