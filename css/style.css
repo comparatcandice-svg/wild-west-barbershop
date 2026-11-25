@@ -1,30 +1,69 @@
+/* =====================================================================
+   FONDATIONS GRAPHIQUES (refonte WildWest) — palette et polices de la
+   stratégie de marque. Modifier ici pour changer l'identité du site.
+   Polices : Besley (titres) et Rokkitt (texte), licence OFL, hébergées dans /fonts.
+   Besley et Rokkitt n'ont pas de cyrillique : le russe utilise la police de repli.
+   ===================================================================== */
+@font-face { font-family:'Besley'; font-weight:800; font-style:normal; font-display:swap; src:url(../fonts/besley-latin-800-normal.woff2) format('woff2'); }
+@font-face { font-family:'Besley'; font-weight:900; font-style:normal; font-display:swap; src:url(../fonts/besley-latin-900-normal.woff2) format('woff2'); }
+@font-face { font-family:'Rokkitt'; font-weight:400; font-style:normal; font-display:swap; src:url(../fonts/rokkitt-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family:'Rokkitt'; font-weight:400; font-style:italic; font-display:swap; src:url(../fonts/rokkitt-latin-400-italic.woff2) format('woff2'); }
+@font-face { font-family:'Rokkitt'; font-weight:600; font-style:normal; font-display:swap; src:url(../fonts/rokkitt-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family:'Rokkitt'; font-weight:700; font-style:normal; font-display:swap; src:url(../fonts/rokkitt-latin-700-normal.woff2) format('woff2'); }
+
+:root {
+  /* palette de marque (stratégie WildWest, page 13) */
+  --c-charcoal:#484746;      /* charbon */
+  --c-charcoal-deep:#34322F; /* charbon foncé (texte, ombres) */
+  --c-ink:#2B2927;           /* noir chaud (fonds sombres) */
+  --c-terracotta:#A85D48;    /* terracotta de marque : aplats sans petit texte */
+  --c-terracotta-text:#9F5640; /* terracotta profond : surfaces portant du texte crème (contraste 4,9) */
+  --c-terracotta-deep:#8E4A37; /* boutons principaux sur terracotta (contraste 6,0) */
+  --c-mustard:#CCAE7B;       /* moutarde : accents (jamais en petit texte sur terracotta) */
+  --c-stone:#D7D4C9;         /* pierre */
+  --c-taupe:#A79F91;         /* taupe */
+  --c-sage:#B2BAB5;          /* sauge (rare) */
+  --c-cream:#F4F4EA;         /* crème : fond des pages */
+
+  /* polices */
+  --font-display:'Besley', Georgia, 'Times New Roman', serif;
+  --font-body:'Rokkitt', Georgia, 'Times New Roman', serif;
+  --font-cjk:'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+  /* échelle d'espacement (px) */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px; --space-7:48px;
+  --border-w:2px;
+}
+
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   html,body { width:100%; min-height:100%; }
   body {
     position:relative;
-    font-family:'Cinzel',Georgia,serif;
+    font-family:var(--font-body);
+    font-size:18px;
     color:var(--ink);
     background-color:#1c140c;
     overflow-x:hidden;
   }
 
   :root {
-    --ink:#241d14;
-    --ink-soft:rgba(36,29,20,0.78);
-    --ink-faint:rgba(36,29,20,0.55);
-    --line:rgba(36,29,20,0.55);
-    --line-faint:rgba(255,235,205,0.28);
-    --gold:#c9a876;
-    --gold-bright:#e6c98f;
-    --glow:rgba(201,168,118,0.65);
-    --parchment:rgba(244,231,205,0.86);
-    --parchment-soft:rgba(244,231,205,0.6);
+    --ink:var(--c-charcoal-deep);
+    --ink-soft:rgba(52,50,47,0.86);
+    --ink-faint:rgba(52,50,47,0.68);
+    --line:rgba(52,50,47,0.55);
+    --line-faint:rgba(244,244,234,0.28);
+    --gold:var(--c-mustard);
+    --gold-bright:#E3CB9D;
+    --glow:rgba(204,174,123,0.55);
+    --parchment:rgba(244,244,234,0.93);
+    --parchment-soft:rgba(244,244,234,0.86);
   }
 
   [data-i18n] { display:none; }
   body.lang-id [data-i18n="id"], body.lang-en [data-i18n="en"],
   body.lang-ru [data-i18n="ru"], body.lang-zh [data-i18n="zh"] { display:inline; }
-  body.lang-zh { font-family:'Cinzel','Noto Sans SC',Georgia,serif; }
+  body.lang-zh { font-family:var(--font-cjk); }
+  body.lang-zh .tab, body.lang-zh .lang-btn, body.lang-zh .panel-title, body.lang-zh .item-name { font-family:var(--font-display), var(--font-cjk); }
 
   /* ---------- shared voluminous "btn3d" system: layered lift shadow +
      glass top-highlight + diagonal shine sweep, same construction proven
@@ -130,7 +169,7 @@
   /* ---------- language switch ---------- */
   .lang-switch { display:flex; justify-content:center; gap:8px; padding:16px 18px 4px; }
   .lang-btn { --rest-shadow:0 6px 14px rgba(10,6,2,0.3), 0 2px 4px rgba(10,6,2,0.24), inset 0 1px 0 rgba(255,240,210,0.25);
-    font-family:'Cinzel','Noto Sans SC',Georgia,serif; font-size:12px; font-weight:600; letter-spacing:0.5px;
+    font-family:var(--font-display), var(--font-cjk); font-size:12px; font-weight:600; letter-spacing:0.5px;
     padding:8px 15px; border-radius:16px; border:1.2px solid rgba(244,231,205,0.5); cursor:pointer;
     color:#f4e7cd; background:linear-gradient(180deg, rgba(60,42,24,0.5) 0%, rgba(30,20,10,0.55) 100%);
     backdrop-filter:blur(8px) saturate(140%); box-shadow:var(--rest-shadow); }
@@ -151,7 +190,7 @@
   .tabs-wrap { position:sticky; top:0; z-index:10; padding:16px 0 12px; }
   .tabs-scroll { display:flex; gap:10px; overflow-x:auto; padding:0 18px 4px; scrollbar-width:none; }
   .tabs-scroll::-webkit-scrollbar { display:none; }
-  .tab { flex:none; font-family:'Cinzel',Georgia,serif; font-size:13px; font-weight:600; letter-spacing:0.5px;
+  .tab { flex:none; font-family:var(--font-display); font-size:13px; font-weight:600; letter-spacing:0.5px;
     padding:11px 18px; border-radius:22px; border:1.3px solid rgba(244,231,205,0.35); cursor:pointer;
     color:#f4e7cd; white-space:nowrap;
     background:linear-gradient(180deg, rgba(60,42,24,0.42) 0%, rgba(30,20,10,0.48) 100%);
@@ -170,7 +209,7 @@
      logo/active-tab: dark leather-brass gradient + upper-left glass glare)
      so a new category reads instantly while scrolling fast. */
   .panel-title { display:flex; align-items:center; gap:11px;
-    font-family:'Cinzel',Georgia,serif; font-weight:700; font-size:22px;
+    font-family:var(--font-display); font-weight:700; font-size:22px;
     letter-spacing:1px; text-transform:uppercase; color:var(--gold-bright);
     margin:0 -18px 18px; padding:15px 18px 13px;
     background:linear-gradient(180deg, rgba(201,168,118,0.24) 0%, rgba(201,168,118,0.05) 100%);
@@ -191,9 +230,9 @@
   .item-row { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
   .item-name { font-size:18px; font-weight:600; color:var(--ink); line-height:1.3; }
   .item-price { font-size:18.5px; font-weight:700; color:#7a4a1a; flex:none; font-variant-numeric:tabular-nums; }
-  .item-desc { margin-top:4px; font-family:'EB Garamond',Georgia,serif; font-style:italic; font-size:14.5px;
+  .item-desc { margin-top:4px; font-family:var(--font-body); font-style:italic; font-size:14.5px;
     line-height:1.4; color:var(--ink-soft); }
-  .cat-note { margin-top:6px; padding:0 4px; font-family:'EB Garamond',Georgia,serif; font-style:italic;
+  .cat-note { margin-top:6px; padding:0 4px; font-family:var(--font-body); font-style:italic;
     font-size:12.5px; line-height:1.5; color:rgba(244,231,205,0.75); text-align:center; }
 
   .foot { margin-top:6px; padding:18px; display:flex; align-items:center; gap:14px; }
@@ -211,27 +250,27 @@
 
   .sub-title { text-align:center; margin:18px 0 12px; font-weight:700; font-size:15px; letter-spacing:3px;
     text-transform:uppercase; color:var(--gold-bright); text-shadow:0 2px 6px rgba(10,6,2,0.5); }
-  .item-size { font-family:'EB Garamond',Georgia,serif; font-weight:400; font-size:12px; color:var(--ink-faint); margin-left:4px; }
+  .item-size { font-family:var(--font-body); font-weight:400; font-size:12px; color:var(--ink-faint); margin-left:4px; }
 
   /* ---------- Google reviews ---------- */
-  .reviews-sub { margin:-4px 2px 14px; text-align:center; font-family:'EB Garamond',Georgia,serif; font-style:italic;
+  .reviews-sub { margin:-4px 2px 14px; text-align:center; font-family:var(--font-body); font-style:italic;
     font-size:15px; line-height:1.45; color:rgba(244,231,205,0.85); }
   .rating-card { text-align:center; padding:20px 16px 18px; }
   .rating-stars { font-size:30px; letter-spacing:5px; color:#b8791f; text-shadow:0 1px 0 rgba(255,240,210,0.6); line-height:1; }
   .rating-num { font-size:54px; font-weight:900; line-height:1.1; margin-top:6px; color:var(--ink); font-variant-numeric:tabular-nums; }
   .rating-num small { font-size:18px; font-weight:600; color:var(--ink-faint); margin-left:4px; }
-  .rating-count { margin-top:2px; font-family:'EB Garamond',Georgia,serif; font-style:italic; font-size:16px; color:var(--ink-soft); }
+  .rating-count { margin-top:2px; font-family:var(--font-body); font-style:italic; font-size:16px; color:var(--ink-soft); }
   .rating-card .book-cta { margin:16px auto 0; max-width:360px; }
   .review-list { display:grid; grid-template-columns:1fr; gap:10px; }
   .review-card { margin-bottom:0; display:flex; flex-direction:column; }
   .review-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
   .review-name { font-size:17px; font-weight:700; color:var(--ink); }
   .review-stars { color:#b8791f; letter-spacing:2px; font-size:16px; flex:none; }
-  .review-text { margin-top:8px; font-family:'EB Garamond',Georgia,serif; font-style:italic; font-size:16px; line-height:1.45;
+  .review-text { margin-top:8px; font-family:var(--font-body); font-style:italic; font-size:16px; line-height:1.45;
     color:var(--ink-soft); overflow-wrap:anywhere; flex:1; }
   .review-foot { margin-top:10px; padding-top:8px; border-top:1px solid rgba(36,29,20,0.15); display:flex;
     justify-content:space-between; align-items:center; gap:10px; font-size:11.5px; letter-spacing:0.4px; }
-  .review-meta { color:var(--ink-faint); font-family:'EB Garamond',Georgia,serif; font-style:italic; font-size:12.5px; }
+  .review-meta { color:var(--ink-faint); font-family:var(--font-body); font-style:italic; font-size:12.5px; }
   .review-date + .review-translated::before { content:" · "; }
   .review-link { color:#7a4a1a; font-weight:600; text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
   @media (min-width:760px) {
@@ -242,7 +281,7 @@
   body.lang-fr [data-i18n="fr"] { display:inline; }
   .lang-switch { flex-wrap:wrap; }
   .lang-btn { padding:8px 13px; }
-  .panel-sub { margin:-6px 0 12px; text-align:center; font-family:'EB Garamond',Georgia,serif; font-style:italic;
+  .panel-sub { margin:-6px 0 12px; text-align:center; font-family:var(--font-body); font-style:italic;
     font-size:16px; letter-spacing:0.4px; color:rgba(244,231,205,0.9); }
   .panel-sub--soft { margin-top:-8px; font-size:14px; color:rgba(244,231,205,0.7); }
   .item-sub { display:flex; justify-content:space-between; align-items:flex-end; gap:12px; }
@@ -270,7 +309,7 @@
   .tabs-fade { position:absolute; top:16px; bottom:16px; width:46px; z-index:3; pointer-events:none;
     opacity:0; transition:opacity .25s ease; }
   .tabs-fade::after { position:absolute; top:50%; transform:translateY(-52%); font-size:24px; line-height:1;
-    color:var(--gold-bright); text-shadow:0 1px 4px rgba(10,6,2,0.7); font-family:Georgia,serif; }
+    color:var(--gold-bright); text-shadow:0 1px 4px rgba(10,6,2,0.7); font-family:var(--font-display); }
   .tabs-fade--right { right:0; border-radius:0 22px 22px 0;
     background:linear-gradient(to right, rgba(36,26,14,0) 0%, rgba(36,26,14,0.5) 70%, rgba(36,26,14,0.62) 100%); }
   .tabs-fade--right::after { content:"\203A"; right:8px; }
